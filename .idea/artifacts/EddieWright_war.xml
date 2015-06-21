@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="EddieWright:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="EddieWrightWebApp.war">
-      <element id="artifact" artifact-name="EddieWright:war exploded" />
-    </root>
-  </artifact>
-</component>
