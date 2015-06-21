@@ -23,10 +23,12 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="EddieWright" />
+        <module name="ew-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="EddieWright" target="1.6" />
+      <module name="ew-core" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

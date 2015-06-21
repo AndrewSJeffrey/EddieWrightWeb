@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EddieWright.iml" filepath="$PROJECT_DIR$/EddieWright.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../EddieWrightCore/ew-core.iml" filepath="$PROJECT_DIR$/../EddieWrightCore/ew-core.iml" />
     </modules>
   </component>
 </project>
