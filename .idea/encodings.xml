@@ -5,5 +5,9 @@
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/application-properties.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/application.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/application.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/controllers/toast-alerts.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/toaster-service.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/angular-animate.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/toaster.js" charset="UTF-8" />
   </component>
 </project>

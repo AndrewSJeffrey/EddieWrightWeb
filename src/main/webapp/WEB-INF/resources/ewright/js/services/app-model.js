@@ -7,15 +7,16 @@ angular.module('eWrightServices').service('AppModel', function () {
     }
 
     function setLoggedIn(loggedIn) {
-        console.log(loggedIn);
+        if (!loggedIn) {
+            user = null;
+            return;
+        }
+
         if (loggedIn.username) {
             user = loggedIn;
-            console.log(user.username)
         } else {
             user = null;
         }
-
-
     }
 
     return ({

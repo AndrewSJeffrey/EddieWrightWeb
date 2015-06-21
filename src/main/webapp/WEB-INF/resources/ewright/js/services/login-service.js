@@ -3,17 +3,24 @@ angular.module('eWrightServices').service('LoginService',  ['DAOAbstract', 'AppM
     var dao = DAOAbstract.createDAO('/login');
 
 
-    function attemptLogin(username, password) {
-        console.log(username + ":" + password);
-        dao.query("?user=" + username + "&password=" + password, handleLoginResult);
+    function attemptLogin(username, password, callback) {
+        dao.query("?user=" + username + "&password=" + password, function (result) {
+            handleLoginResult(result);
+            callback(result)
+        });
     }
 
     function handleLoginResult(result) {
         AppModel.setLoggedIn(result.data);
     }
 
+    function logout() {
+        AppModel.setLoggedIn(null);
+    }
+
 
     return ({
-        attemptLogin: attemptLogin
+        attemptLogin: attemptLogin,
+        logout : logout
     })
 }]);
