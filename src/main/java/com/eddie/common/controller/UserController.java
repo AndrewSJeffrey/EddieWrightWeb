@@ -8,27 +8,29 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @Controller
 @Transactional
-@RequestMapping("/login")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
     private UserDao userDao;
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
     public
     @ResponseBody
-    User getUser(@RequestParam(value = "user") String username, @RequestParam(value = "password") String password) {
+    List<User> allUsers() {
         try {
-            User user = userDao.findByUsernameAndPassword(username, password);
+            List<User> users = userDao.list();
             //simulate delays
-            Thread.sleep(1000);
-            if (user == null) {
+            //  Thread.sleep(1000);
+            if (users == null) {
                 return null;
             } else {
-                return user;
+                return users;
             }
 
         } catch (Exception e) {
@@ -36,6 +38,8 @@ public class UserController {
         }
         return null;
     }
+
+
 }
 
 
