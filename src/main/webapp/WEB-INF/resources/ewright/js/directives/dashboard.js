@@ -1,7 +1,7 @@
 angular.module('eWrightDirectives').directive('dashboard', function () {
 
 
-    var controller = ['$scope', 'LoginService', 'ToasterService', function ($scope, LoginService, ToasterService) {
+    var controller = ['$scope', 'LoginService', 'ToasterService', 'blockUI', function ($scope, LoginService, ToasterService, blockUI) {
 
         $scope.logout = function () {
             LoginService.logout();

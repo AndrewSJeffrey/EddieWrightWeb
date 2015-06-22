@@ -1,7 +1,7 @@
 angular.module('eWrightDirectives').directive('loginPage', function () {
 
 
-    var controller = ['$scope', 'LoginService', 'ToasterService', function ($scope, LoginService, ToasterService) {
+    var controller = ['$scope', 'LoginService', 'ToasterService', 'blockUI', function ($scope, LoginService, ToasterService, blockUI) {
 
         $scope.model = {
             emailAddress: "",
@@ -19,11 +19,12 @@ angular.module('eWrightDirectives').directive('loginPage', function () {
                 ToasterService.createToast(ToasterService.PRIORITY.ERROR, ToasterService.MESSAGES.FAILED_LOGIN);
             } else {
                 model().incorrectLogin = false;
-
             }
+            blockUI.stop();
         }
 
         $scope.login = function () {
+            blockUI.start();
             LoginService.attemptLogin(model().emailAddress, model().password, handleLogin);
         }
 
