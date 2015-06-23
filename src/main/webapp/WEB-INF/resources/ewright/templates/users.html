@@ -2,7 +2,7 @@
 
 
     <div class="page-header" style="margin-top: 0px">
-        <h1>User settings
+        <h1> <i class="fa fa-users"></i> User settings
             <small>- Add, edit and remove users.</small>
         </h1>
     </div>
@@ -14,7 +14,8 @@
 
 
         <div class="col-md-8">
-            <button class="btn btn-success pull-right" type="button" ng-click="open(true)">New</button>
+            <button class="btn btn-success pull-right" type="button" ng-click="refresh()"><i class="fa fa-refresh"></i></button>
+            <button class="btn btn-success pull-right" type="button" ng-click="open(true)"><i class="fa fa-plus"></i></button>
         </div>
     </div>
 
@@ -31,11 +32,12 @@
             <th>Date Created</th>
             <th>Date Modified</th>
             <th>Modified By</th>
+            <th>Enabled</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in rowCollection">
+        <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in rowCollection" ng-style="removedRowColor(row)">
             <td>{{row.username}}</td>
             <td>{{row.role}}</td>
             <td>{{row.firstname}}</td>
@@ -44,8 +46,12 @@
             <td>{{row.dateCreated | date:'dd/MM/yyyy @ h:mma'}}</td>
             <td>{{row.dateModified | date:'dd/MM/yyyy @ h:mma'}}</td>
             <td>{{row.modifiedBy}}</td>
+
+            <td ng-hide="row.removed">  <i class="fa fa-check-square-o"></i></td>
+            <td ng-show="row.removed">  <i class="fa fa-square-o"></i></td>
+
             <td>
-                <button class="btn btn-warning pull-right" type="button" ng-click="open(false, row)">Edit</button>
+                <button class="btn btn-warning pull-right" type="button" ng-click="open(false, row)"><i class="fa fa-wrench"></i></button>
             </td>
         </tr>
         </tbody>

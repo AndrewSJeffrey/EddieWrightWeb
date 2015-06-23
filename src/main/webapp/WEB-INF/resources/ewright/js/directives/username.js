@@ -2,21 +2,18 @@ angular.module('eWrightDirectives').directive('username', ['$q', '$timeout', 'Ap
     return {
         require: 'ngModel',
         link: function (scope, elm, attrs, ctrl) {
-
-            console.log(attrs.defaultUsername); //literally "modelObject.obj"
-            var defaultUsername = (attrs.defaultUsername); //literally "modelObject.obj"
-
-
+            var defaultUsername = (attrs.defaultUsername).toUpperCase();
             var userNames = [];
 
             var users = AppModel.getAllUsers();
             for (var i = 0; i < users.length; i++){
-                userNames.push(users[0].username);
+                userNames.push(users[i].username.toUpperCase());
             }
 
 
             ctrl.$asyncValidators.username = function (modelValue, viewValue) {
 
+                modelValue = modelValue.toUpperCase();
                 if (ctrl.$isEmpty(modelValue)) {
                     // consider empty model valid
                     return $q.when();

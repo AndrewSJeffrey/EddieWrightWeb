@@ -89,11 +89,24 @@
         </div>
         <div class="modal-footer">
             <div class="form-group">
-                <div class=" col-sm-12">
-                    <div class="pull-right">
-                        <button ng-hide="model.newuser" type="submit" class="btn btn-danger" ng-click="delete()">Delete
+                <div class="col-sm-2">
+                    <div class="pull-left">
+
+
+                       <button ng-hide="model.newuser" ng-show="!user.removed" type="submit" class="btn btn-danger" ng-click="delete()">Delete
                             Record
                         </button>
+
+                        <button ng-hide="model.newuser"  ng-show="user.removed"type="submit" class="btn btn-success" ng-click="restore()">Restore
+                            Record
+                        </button>
+
+
+                    </div>
+
+                </div>
+                <div class="col-sm-10">
+                    <div class="pull-right">
                         <button ng-hide="model.newuser" type="submit" class="btn btn-warning"
                                 ng-click="resetPassword()">Reset Password
                         </button>

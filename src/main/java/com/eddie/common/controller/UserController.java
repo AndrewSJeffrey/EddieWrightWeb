@@ -43,26 +43,45 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = "/new", method = {RequestMethod.POST})
     public User create(@RequestBody final User user) {
-
-
         final Date dateNow = new Date();
         user.setId(null);
         user.setDateCreated(dateNow);
         user.setDateModified(dateNow);
         user.setPassword("password");
-
-
-        System.out.println(user);
-        //set date created + modified by
-        //generate password
-        //hibernate save
-
-        //email password to user
+        user.setRemoved(false);
         userDao.save(user);
 
         return user;
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/delete", method = {RequestMethod.POST})
+    public User delete(@RequestBody final User user) {
+        final Date dateNow = new Date();
+        user.setDateModified(dateNow);
+        user.setRemoved(true);
+        userDao.save(user);
+        return user;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/restore", method = {RequestMethod.POST})
+    public User restore(@RequestBody final User user) {
+        final Date dateNow = new Date();
+        user.setDateModified(dateNow);
+        user.setRemoved(false);
+        userDao.save(user);
+        return user;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/update", method = {RequestMethod.POST})
+    public User update(@RequestBody final User user) {
+        final Date dateNow = new Date();
+        user.setDateModified(dateNow);
+        userDao.save(user);
+        return user;
+    }
 
 }
 

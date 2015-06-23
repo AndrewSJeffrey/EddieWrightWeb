@@ -32,6 +32,14 @@ angular.module('eWrightServices').service('AppModel', function () {
         return user;
     }
 
+    function debug(object) {
+        var output = '';
+        for (var property in object) {
+            output += property + ': ' + object[property] + '; ';
+        }
+        alert(output);
+    }
+
     return ({
         isLoggedIn: isLoggedIn,
         setLoggedIn: setLoggedIn,

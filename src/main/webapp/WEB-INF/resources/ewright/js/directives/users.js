@@ -14,25 +14,33 @@ angular.module('eWrightDirectives').directive('users', function () {
         UserService.getAllUsers(processData);
 
 
-        $scope.items = ['item1', 'item2', 'item3'];
+        $scope.removedRowColor = function (row) {
+            if (row.removed) {
+                return {'backgroundColor': '#FFFFCC'}
+            }
+            return null;
+        };
 
-
-        $scope.animationsEnabled = false;
+        $scope.refresh = function () {
+            UserService.getAllUsers(processData);
+        };
 
         $scope.open = function (newuser, user, size) {
             var modalInstance = $modal.open({
-                animation: $scope.animationsEnabled,
+                animation: false,
                 templateUrl: '/resources/ewright/templates/userForm.html',
                 controller: 'ModalInstanceCtrl',
                 size: size,
                 resolve: {
                     model: function () {
                         var model = {
-                            items: $scope.items,
                             newuser: newuser,
-                            user : user,
-                            UserService : UserService,
-                            AppModel : AppModel
+                            user: user,
+                            UserService: UserService,
+                            AppModel: AppModel,
+                            blockUI: blockUI,
+                            refresh : $scope.refresh
+
                         };
                         return model;
                     }
@@ -40,7 +48,6 @@ angular.module('eWrightDirectives').directive('users', function () {
             });
 
             modalInstance.result.then(function (selectedItem) {
-                $scope.selected = selectedItem;
             }, function () {
             });
         };
@@ -68,45 +75,55 @@ angular.module('eWrightDirectives').directive('users', function () {
 });
 
 angular.module('eWrightControllers').controller('ModalInstanceCtrl', function ($scope, $modalInstance, model) {
-
-    $scope.model = model;
-
     var UserService = model.UserService;
     var AppModel = model.AppModel;
+    var blockUI = model.blockUI;
 
-    $scope.items = model.items;
-    $scope.selected = {
-        item: $scope.items[0]
-    };
-
+    $scope.model = model;
     $scope.user = jQuery.extend(true, {}, model.user);
     $scope.refUser = model.user;
-
-    $scope.ok = function () {
-        $modalInstance.close($scope.selected.item);
-    };
 
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
+
     $scope.delete = function () {
-        $modalInstance.dismiss('cancel');
-    };
-    $scope.update = function () {
-        $modalInstance.dismiss('cancel');
-    };
-    $scope.create = function () {
         var user = setModifiedBy($scope.user);
-        UserService.createNewUser(user);
-        $modalInstance.dismiss('created');
+        UserService.deleteUser(user, closeDialog);
+        $modalInstance.dismiss('delete');
     };
+
+    $scope.restore = function () {
+        var user = setModifiedBy($scope.user);
+        UserService.restoreUser(user, closeDialog);
+        $modalInstance.dismiss('restore');
+    };
+
+    $scope.update = function () {
+        var user = setModifiedBy($scope.user);
+        UserService.updateUser(user, closeDialog);
+        $modalInstance.dismiss('update');
+    };
+
+    $scope.create = function () {
+        blockUI.start();
+        var user = setModifiedBy($scope.user);
+        UserService.createNewUser(user, closeDialog);
+    };
+
     $scope.resetPassword = function () {
         $modalInstance.dismiss('cancel');
     };
 
 
     function setModifiedBy(user) {
-        user.modifiedBy =  AppModel.getLoggedInUser().username;
+        user.modifiedBy = AppModel.getLoggedInUser().username;
         return user;
+    }
+
+    function closeDialog() {
+        $modalInstance.dismiss("closing");
+        blockUI.stop();
+        model.refresh();
     }
 });

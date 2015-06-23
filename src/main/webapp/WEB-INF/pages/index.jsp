@@ -16,6 +16,7 @@
     <script src="${pageContext.request.contextPath}/resources/js/smart-table.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/underscore.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/ui-bootstrap-tpls.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
 <body ng-app="app" ng-controller="menu" ng-style="getPageStyle()">
