@@ -1,4 +1,4 @@
-angular.module('app', ['smart-table', 'blockUI', 'toasty', 'ngAnimate', 'eWrightControllers', 'eWrightServices', 'eWrightDirectives']);
+angular.module('app', ['ui.bootstrap', 'smart-table', 'blockUI', 'toasty', 'ngAnimate', 'eWrightControllers', 'eWrightServices', 'eWrightDirectives']);
 
 var eWrightControllers = angular.module('eWrightControllers', []);
 

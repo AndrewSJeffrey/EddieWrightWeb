@@ -1,6 +1,7 @@
 angular.module('eWrightServices').service('AppModel', function () {
 
     var user = null;
+    var allUsers = [];
 
     function isLoggedIn() {
         return user != null;
@@ -19,8 +20,18 @@ angular.module('eWrightServices').service('AppModel', function () {
         }
     }
 
+    function setAllUsers(users) {
+        allUsers = users;
+    }
+
+    function getAllUsers() {
+        return allUsers;
+    }
+
     return ({
         isLoggedIn: isLoggedIn,
-        setLoggedIn: setLoggedIn
+        setLoggedIn: setLoggedIn,
+        setAllUsers: setAllUsers,
+        getAllUsers: getAllUsers
     })
 });
