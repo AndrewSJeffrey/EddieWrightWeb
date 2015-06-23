@@ -1,8 +1,11 @@
 package com.eddie.common.controller;
 
 import com.eddie.LiveChat;
+import com.eddie.common.service.EmailService;
+import com.eddie.common.service.PasswordGenerator;
 import com.eddie.dao.UserDao;
 import com.eddie.domain.User;
+import org.apache.commons.mail.EmailException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,7 +50,7 @@ public class UserController {
         user.setId(null);
         user.setDateCreated(dateNow);
         user.setDateModified(dateNow);
-        user.setPassword("password");
+        resetPassword(user);
         user.setRemoved(false);
         userDao.save(user);
 
@@ -81,6 +84,39 @@ public class UserController {
         user.setDateModified(dateNow);
         userDao.save(user);
         return user;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/resetPassword", method = {RequestMethod.POST})
+    public User resetPasswordViaEmail(@RequestBody final User user) {
+        final Date dateNow = new Date();
+        user.setDateModified(dateNow);
+        resetPassword(user);
+        userDao.save(user);
+        return user;
+    }
+
+
+    public void resetPassword(final User user) {
+        String password = PasswordGenerator.generatePassword();
+        user.setPassword(password);
+        StringBuilder resetPasswordEmail = new StringBuilder();
+        resetPasswordEmail.append("Dear ");
+        resetPasswordEmail.append(user.getFirstname());
+        resetPasswordEmail.append(", Your login details are:\n");
+        resetPasswordEmail.append("Username: ");
+        resetPasswordEmail.append(user.getUsername());
+        resetPasswordEmail.append("\n");
+        resetPasswordEmail.append("Password: ");
+        resetPasswordEmail.append(user.getPassword());
+        resetPasswordEmail.append("\n");
+        resetPasswordEmail.append("Please log in here: ");
+        resetPasswordEmail.append("http://localhost:8080 \n");
+        try {
+            EmailService.sendEmail("Password has been reset", resetPasswordEmail.toString(), user.getEmail());
+        } catch (EmailException e) {
+            e.printStackTrace();
+        }
     }
 
 }

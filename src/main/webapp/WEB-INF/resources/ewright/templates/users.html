@@ -29,6 +29,7 @@
             <th>First Name</th>
             <th>Surname</th>
             <th>E-mail</th>
+            <th>Last Login</th>
             <th>Date Created</th>
             <th>Date Modified</th>
             <th>Modified By</th>
@@ -43,6 +44,7 @@
             <td>{{row.firstname}}</td>
             <td>{{row.surname}}</td>
             <td>{{row.email}}</td>
+            <td>{{row.dateLastLogin | date:'dd/MM/yyyy @ h:mma'}}</td>
             <td>{{row.dateCreated | date:'dd/MM/yyyy @ h:mma'}}</td>
             <td>{{row.dateModified | date:'dd/MM/yyyy @ h:mma'}}</td>
             <td>{{row.modifiedBy}}</td>

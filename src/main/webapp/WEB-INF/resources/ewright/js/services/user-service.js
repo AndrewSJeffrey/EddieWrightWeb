@@ -33,6 +33,12 @@ angular.module('eWrightServices').service('UserService', ['DAOAbstract', 'AppMod
         });
     }
 
+    function resetPassword(user, callback) {
+        dao.postURL("/resetPassword", repack(user), function () {
+            callback();
+        });
+    }
+
     function repack(user) {
         return {
             id: user.id ? user.id : 0,
@@ -55,6 +61,7 @@ angular.module('eWrightServices').service('UserService', ['DAOAbstract', 'AppMod
         createNewUser: createNewUser,
         deleteUser: deleteUser,
         restoreUser: restoreUser,
-        updateUser: updateUser
+        updateUser: updateUser,
+        resetPassword: resetPassword
     })
 }]);

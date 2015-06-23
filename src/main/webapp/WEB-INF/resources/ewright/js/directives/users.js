@@ -112,9 +112,10 @@ angular.module('eWrightControllers').controller('ModalInstanceCtrl', function ($
     };
 
     $scope.resetPassword = function () {
-        $modalInstance.dismiss('cancel');
+        blockUI.start();
+        var user = setModifiedBy($scope.user);
+        UserService.resetPassword(user, closeDialog);
     };
-
 
     function setModifiedBy(user) {
         user.modifiedBy = AppModel.getLoggedInUser().username;

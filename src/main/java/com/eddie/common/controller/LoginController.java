@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -30,6 +31,8 @@ public class LoginController {
             if (user == null) {
                 return null;
             } else {
+                user.setDateLastLogin(new Date());
+                userDao.save(user);
                 return user;
             }
         } catch (Exception e) {
