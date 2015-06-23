@@ -5,8 +5,14 @@ angular.module('eWrightDirectives').directive('dashboard', function () {
 
         $scope.logout = function () {
             LoginService.logout();
-            ToasterService.createToast(ToasterService.PRIORITY.SUCCESS, ToasterService.MESSAGES.LOGOUT)
-        }
+            ToasterService.createToast(ToasterService.PRIORITY.SUCCESS, ToasterService.MESSAGES.LOGOUT);
+            $scope.getLoggedInUser = LoginService.getLoggedInUser();
+        };
+
+        $scope.getLoggedInUser = null;
+
+
+
 
     }];
 
