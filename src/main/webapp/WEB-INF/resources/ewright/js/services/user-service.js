@@ -9,7 +9,13 @@ angular.module('eWrightServices').service('UserService', ['DAOAbstract', 'AppMod
         });
     }
 
+    function createNewUser(user) {
+        dao.postURL("/new", user);
+    }
+
+
     return ({
-        getAllUsers: getAllUsers
+        getAllUsers: getAllUsers,
+        createNewUser : createNewUser
     })
 }]);

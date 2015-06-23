@@ -24,10 +24,10 @@
         <thead>
         <tr>
             <th>Username</th>
+            <th>Role</th>
             <th>First Name</th>
             <th>Surname</th>
             <th>E-mail</th>
-            <th>Role</th>
             <th>Date Created</th>
             <th>Date Modified</th>
             <th>Modified By</th>
@@ -37,12 +37,12 @@
         <tbody>
         <tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in rowCollection">
             <td>{{row.username}}</td>
+            <td>{{row.role}}</td>
             <td>{{row.firstname}}</td>
             <td>{{row.surname}}</td>
             <td>{{row.email}}</td>
-            <td>{{row.role}}</td>
-            <td>{{row.dateCreated | date:'MM/dd/yyyy @ h:mma'}}</td>
-            <td>{{row.dateModified | date:'MM/dd/yyyy @ h:mma'}}</td>
+            <td>{{row.dateCreated | date:'dd/MM/yyyy @ h:mma'}}</td>
+            <td>{{row.dateModified | date:'dd/MM/yyyy @ h:mma'}}</td>
             <td>{{row.modifiedBy}}</td>
             <td>
                 <button class="btn btn-warning pull-right" type="button" ng-click="open(false, row)">Edit</button>

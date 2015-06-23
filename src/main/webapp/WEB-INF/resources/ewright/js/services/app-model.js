@@ -28,10 +28,15 @@ angular.module('eWrightServices').service('AppModel', function () {
         return allUsers;
     }
 
+    function getLoggedInUser() {
+        return user;
+    }
+
     return ({
         isLoggedIn: isLoggedIn,
         setLoggedIn: setLoggedIn,
         setAllUsers: setAllUsers,
-        getAllUsers: getAllUsers
+        getAllUsers: getAllUsers,
+        getLoggedInUser : getLoggedInUser
     })
 });

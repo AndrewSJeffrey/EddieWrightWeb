@@ -30,7 +30,9 @@ angular.module('eWrightDirectives').directive('users', function () {
                         var model = {
                             items: $scope.items,
                             newuser: newuser,
-                            user : user
+                            user : user,
+                            UserService : UserService,
+                            AppModel : AppModel
                         };
                         return model;
                     }
@@ -69,6 +71,9 @@ angular.module('eWrightControllers').controller('ModalInstanceCtrl', function ($
 
     $scope.model = model;
 
+    var UserService = model.UserService;
+    var AppModel = model.AppModel;
+
     $scope.items = model.items;
     $scope.selected = {
         item: $scope.items[0]
@@ -91,6 +96,17 @@ angular.module('eWrightControllers').controller('ModalInstanceCtrl', function ($
         $modalInstance.dismiss('cancel');
     };
     $scope.create = function () {
+        var user = setModifiedBy($scope.user);
+        UserService.createNewUser(user);
+        $modalInstance.dismiss('created');
+    };
+    $scope.resetPassword = function () {
         $modalInstance.dismiss('cancel');
     };
+
+
+    function setModifiedBy(user) {
+        user.modifiedBy =  AppModel.getLoggedInUser().username;
+        return user;
+    }
 });

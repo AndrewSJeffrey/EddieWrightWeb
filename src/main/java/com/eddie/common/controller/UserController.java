@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -37,6 +38,29 @@ public class UserController {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/new", method = {RequestMethod.POST})
+    public User create(@RequestBody final User user) {
+
+
+        final Date dateNow = new Date();
+        user.setId(null);
+        user.setDateCreated(dateNow);
+        user.setDateModified(dateNow);
+        user.setPassword("password");
+
+
+        System.out.println(user);
+        //set date created + modified by
+        //generate password
+        //hibernate save
+
+        //email password to user
+        userDao.save(user);
+
+        return user;
     }
 
 
