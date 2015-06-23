@@ -22,14 +22,15 @@
                     <!-- DOC: Remove data-hover="dropdown" and data-close-others="true" attributes below to disable the horizontal opening on mouse hover -->
 
                     <li class="classic-menu-dropdown" ng-class="{active: menu.selected == true}"
-                        ng-repeat="menu in mainMenu" >
+                        ng-repeat="menu in mainMenu" ng-show="menu.hasPermission()">
 
                         <a href="#" data-toggle="dropdown" ng-click="menu.onClick()">
                             {{menu.title}}
                             <span class="selected"/>
                         </a>
+
                         <ul class="dropdown-menu pull-left">
-                            <li ng-repeat="child in menu.children" >
+                            <li ng-repeat="child in menu.children" ng-show="child.hasPermission()">
                                 <a href="#" ng-click="child.onClick()" > {{child.title}} </a>
                             </li>
                         </ul>

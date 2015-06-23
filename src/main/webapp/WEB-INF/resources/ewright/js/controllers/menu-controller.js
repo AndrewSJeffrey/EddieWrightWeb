@@ -18,7 +18,7 @@ angular.module('eWrightControllers').controller('MenuController', ['$scope', 'Ap
 }]);
 
 
-angular.module('eWrightServices').service('MenuService', function () {
+angular.module('eWrightServices').service('MenuService', ['AppModel', function (AppModel) {
         var MENU_TYPE = {
             single: 0,
             mega: 1,
@@ -27,19 +27,28 @@ angular.module('eWrightServices').service('MenuService', function () {
             element: 4
         };
 
-        var homeMenuItem = createMenuItem("Home", MENU_TYPE.single, null, true,  'templates/dashboard/gmap.html');
-        var prospectingMenuItem = createMenuItem("Prospecting", MENU_TYPE.single, null, true,  'templates/dashboard/gmap.html');
+        var homeMenuItem = createMenuItem("Home", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/home.html', function () {
+            return true;
+        });
 
-        var settingsMenuItem = createMenuItem("Admin", MENU_TYPE.mega, null, false);
+        var prospectingMenuItem = createMenuItem("Prospecting", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/prospecting.html', function () {
+            return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
+        });
 
-        var accountSettings = createMenuItem("Users", MENU_TYPE.element, null, false, 'resources/ewright/templates/dashlet/users.html');
+        var settingsMenuItem = createMenuItem("Admin", MENU_TYPE.mega, null, false, null, function () {
+            return AppModel.hasPermission(['ADMINISTRATOR']);
+        });
+
+        var accountSettings = createMenuItem("Users", MENU_TYPE.element, null, false, 'resources/ewright/templates/dashlet/users.html', function () {
+            return AppModel.hasPermission(['ADMINISTRATOR']);
+        });
+
         settingsMenuItem.addChild(accountSettings);
 
         var mainMenu = [
             homeMenuItem,
             prospectingMenuItem,
             settingsMenuItem
-
         ];
 
 
@@ -47,7 +56,7 @@ angular.module('eWrightServices').service('MenuService', function () {
         var selectedMainMenuItem = homeMenuItem;
         homeMenuItem.onClick();
 
-        function createMenuItem(title, type, onClick, selected, url) {
+        function createMenuItem(title, type, onClick, selected, url, permission) {
             var menuItem = {
                 title: title,
                 type: type,
@@ -56,6 +65,9 @@ angular.module('eWrightServices').service('MenuService', function () {
                 selected: selected,
                 url: url,
                 parent: null,
+                hasPermission: permission ? permission : function () {
+                    return true
+                },
                 addChild: function (childMenuItem) {
                     this.children.push(childMenuItem);
                     childMenuItem.parent = this;
@@ -97,6 +109,7 @@ angular.module('eWrightServices').service('MenuService', function () {
                 deselect(menuItem.children[i]);
             }
         }
+
         function getSelectedMenuItem() {
             return selectedMainMenuItem;
         }
@@ -105,5 +118,5 @@ angular.module('eWrightServices').service('MenuService', function () {
             mainMenu: mainMenu,
             getSelectedMenuItem: getSelectedMenuItem
         });
-    }
+    }]
 );

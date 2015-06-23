@@ -40,11 +40,28 @@ angular.module('eWrightServices').service('AppModel', function () {
         alert(output);
     }
 
+    function hasPermission(permissions) {
+        if (getLoggedInUser() == null) {
+            return;
+        }
+        console.log(getLoggedInUser().role);
+        for (var i = 0; i < permissions.length; i++) {
+            console.log(permissions[i]);
+            if (permissions[i].toUpperCase() == getLoggedInUser().role.toUpperCase()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
     return ({
         isLoggedIn: isLoggedIn,
         setLoggedIn: setLoggedIn,
         setAllUsers: setAllUsers,
         getAllUsers: getAllUsers,
-        getLoggedInUser : getLoggedInUser
+        getLoggedInUser : getLoggedInUser,
+        hasPermission : hasPermission
     })
 });
