@@ -2,6 +2,7 @@ angular.module('eWrightControllers').controller('CalendarController', ['$scope',
     //These variables MUST be set as a minimum for the calendar to work
     $scope.calendarView = 'month';
     $scope.calendarDay = new Date();
+    $scope.selectedDay = $scope.calendarDay;
     $scope.events = [
         {
             title: 'An event',
@@ -51,19 +52,27 @@ angular.module('eWrightControllers').controller('CalendarController', ['$scope',
     }
 
     $scope.eventClicked = function (event) {
-        showModal('Clicked', event);
+        console.log(event);
+        //  showModal('Clicked', event);
     };
 
     $scope.eventEdited = function (event) {
-        showModal('Edited', event);
+        console.log(event);
+        // showModal('Edited', event);
     };
 
     $scope.eventDeleted = function (event) {
-        showModal('Deleted', event);
+        console.log(event);
+        //showModal('Deleted', event);
     };
 
     $scope.eventDropped = function (event) {
-        showModal('Dropped', event);
+        console.log(event);
+        //showModal('Dropped', event);
+    };
+
+    $scope.onTimeSpanClick = function (selectedDay) {
+        $scope.selectedDay = selectedDay;
     };
 
     $scope.toggle = function ($event, field, event) {

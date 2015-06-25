@@ -1,17 +1,112 @@
-<div ng-controller="CalendarController">
-    <h1>Planning?</h1>
-    <mwl-calendar
-            view="calendarView"
-            current-day="calendarDay"
-            events="events"
-            view-title="calendarTitle"
-            on-event-click="eventClicked(calendarEvent)"
-            on-event-drop="calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
-            edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'"
-            delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'"
-            on-edit-event-click="eventEdited(calendarEvent)"
-            on-delete-event-click="eventDeleted(calendarEvent)"
-            auto-open="true">
-    </mwl-calendar>
+<div style="padding: 0px 5px 5px;" ng-controller="CalendarController">
+
+    <div class="page-header" style="margin-top: 0px">
+        <h1><i class="fa fa-calendar"></i> Planner
+            <small>- Add, edit and review events.</small>
+        </h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+
+
+            <input type="text" class="form-control" placeholder="Search" aria-describedby="basic-addon1">
+
+            <h1>{{ selectedDay | date}}</h1>
+
+            <ul class="list-group">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+
+                <div class="col-md-8">
+                    <button class="btn btn-success pull-right" type="button" ng-click="refresh()"><i
+                            class="fa fa-refresh"></i>
+                    </button>
+                    <button class="btn btn-success pull-right" type="button" ng-click="open(true)"><i
+                            class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <mwl-calendar
+                    view="calendarView"
+                    current-day="calendarDay"
+                    events="events"
+                    view-title="calendarTitle"
+                    on-event-click="eventClicked(calendarEvent)"
+                    on-event-drop="calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+                    edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'"
+                    delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'"
+                    on-edit-event-click="eventEdited(calendarEvent)"
+                    on-delete-event-click="eventDeleted(calendarEvent)"
+                    on-timespan-click="onTimeSpanClick(calendarDate)"
+                    auto-open="true">
+            </mwl-calendar>
+            <button
+                    class="btn btn-primary"
+                    mwl-date-modifier
+                    date="calendarDay"
+                    decrement="calendarView">
+                Previous
+            </button>
+
+            <button
+                    class="btn btn-default"
+                    mwl-date-modifier
+                    date="calendarDay"
+                    set-to-today>
+                Today
+            </button>
+
+            <button
+                    class="btn btn-primary"
+                    mwl-date-modifier
+                    date="calendarDay"
+                    increment="calendarView">
+                Next
+            </button>
+
+
+        </div>
+
+
+    </div>
+
 
 </div>
