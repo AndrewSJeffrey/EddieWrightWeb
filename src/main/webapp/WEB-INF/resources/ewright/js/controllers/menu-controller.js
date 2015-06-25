@@ -31,24 +31,51 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
             return true;
         });
 
-        var prospectingMenuItem = createMenuItem("Prospecting", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/prospecting.html', function () {
+        var tasksMenuItem = createMenuItem("Tasks", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/prospecting.html', function () {
             return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
         });
 
-        var settingsMenuItem = createMenuItem("Admin", MENU_TYPE.mega, null, false, null, function () {
-            return AppModel.hasPermission(['ADMINISTRATOR']);
+        var opportunitiesMenuItem = createMenuItem("Opportunities", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/prospecting.html', function () {
+            return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
         });
+
+
+        var leadsMenuItem = createMenuItem("Leads", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/prospecting.html', function () {
+            return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
+        });
+
+        var plannerMenuItem = createMenuItem("Planner", MENU_TYPE.single, null, true, 'resources/ewright/templates/planner.html', function () {
+            return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
+        });
+
+        var contactsMenuItem = createMenuItem("Contacts", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/prospecting.html', function () {
+            return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
+        });
+
 
         var accountSettings = createMenuItem("Users", MENU_TYPE.element, null, false, 'resources/ewright/templates/dashlet/users.html', function () {
             return AppModel.hasPermission(['ADMINISTRATOR']);
         });
 
-        settingsMenuItem.addChild(accountSettings);
+        var logoutMenuItem = createMenuItem("Logout", MENU_TYPE.element, function() {
+            selectedMainMenuItem = homeMenuItem;
+            homeMenuItem.onClick();
+            AppModel.setLoggedIn(false);
+        }, false, 'resources/ewright/templates/dashlet/users.html', function () {
+            return true;
+        });
+
+        //settingsMenuItem.addChild(accountSettings);
 
         var mainMenu = [
             homeMenuItem,
-            prospectingMenuItem,
-            settingsMenuItem
+            tasksMenuItem,
+            opportunitiesMenuItem,
+            leadsMenuItem,
+            plannerMenuItem,
+            contactsMenuItem,
+            accountSettings,
+            logoutMenuItem
         ];
 
 
@@ -60,7 +87,7 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
             var menuItem = {
                 title: title,
                 type: type,
-                onClick: onClick,
+                onClick: null,
                 children: [],
                 selected: selected,
                 url: url,
@@ -81,6 +108,10 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
                     temp.selected = true;
                     selectedMainMenuItem = menuItem;
                 }
+                if (onClick instanceof Function) {
+                    onClick();
+                }
+
             };
 
             return menuItem;
