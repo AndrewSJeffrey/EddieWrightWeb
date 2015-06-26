@@ -23,6 +23,31 @@ angular.module('eWrightControllers').controller('CalendarController', ['$scope',
         }
     ];
 
+
+    $scope.getSelectedEvents = function () {
+        var selectedEvents = [];
+
+        for (var i = 0; i < $scope.events.length; i++) {
+            var event = $scope.events[i];
+            var startDate = new Date(event.startsAt.getTime());
+            startDate.setHours(0, 0, 0, 0);
+
+            var endDate = new Date(event.endsAt.getTime());
+            endDate.setHours(0, 0, 0, 0);
+
+
+            if (between($scope.selectedDay.getTime(), startDate, endDate)) {
+                selectedEvents.push(event);
+            }
+        }
+
+        return selectedEvents;
+    };
+
+    function between(x, min, max) {
+        return x >= min && x <= max;
+    }
+
     /*
      var currentYear = moment().year();
      var currentMonth = moment().month();

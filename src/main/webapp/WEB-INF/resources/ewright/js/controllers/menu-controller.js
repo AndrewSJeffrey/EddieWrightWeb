@@ -44,7 +44,7 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
             return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
         });
 
-        var plannerMenuItem = createMenuItem("Planner", MENU_TYPE.single, null, true, 'resources/ewright/templates/planner.html', function () {
+        var plannerMenuItem = createMenuItem("Calender", MENU_TYPE.single, null, true, 'resources/ewright/templates/planner.html', function () {
             return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
         });
 

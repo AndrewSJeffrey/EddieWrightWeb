@@ -1019,7 +1019,7 @@
         'calendarHelper',
         'calendarConfig',
         function ($scope, $timeout, $sce, moment, calendarHelper, calendarConfig) {
-            var vm = this;
+            var vm = this;F
             vm.calendarConfig = calendarConfig;
             vm.$sce = $sce;
             $scope.$on('calendar.refreshView', function () {
@@ -1078,10 +1078,15 @@
             vm.drillDown = function (date) {
                 var rawDate = moment(date).toDate();
                 var nextView = {
-                    year: 'month',
-                    month: 'day',
-                    week: 'day'
+                    year: 'month'
+                   // month: 'day',
+                   // week: 'day'
                 };
+                console.log("$scope.view:" + $scope.view);
+                if ($scope.view == 'month') {
+                    return;
+                }
+
                 if ($scope.onDrillDownClick({
                         calendarDate: rawDate,
                         calendarNextView: nextView[$scope.view]

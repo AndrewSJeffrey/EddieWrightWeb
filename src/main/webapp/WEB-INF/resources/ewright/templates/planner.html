@@ -1,7 +1,7 @@
 <div style="padding: 0px 5px 5px;" ng-controller="CalendarController">
 
     <div class="page-header" style="margin-top: 0px">
-        <h1><i class="fa fa-calendar"></i> Planner
+        <h1><i class="fa fa-calendar"></i> Calender
             <small>- Add, edit and review events.</small>
         </h1>
     </div>
@@ -9,51 +9,17 @@
     <div class="row">
         <div class="col-md-4">
 
-
-            <input type="text" class="form-control" placeholder="Search" aria-describedby="basic-addon1">
-
-            <h1>{{ selectedDay | date}}</h1>
-
-            <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
-
-        </div>
-        <div class="col-md-8">
             <div class="row">
-                <div class="col-md-4">
+
+                <div class="col-md-12 text-center">
+                    <h3>{{selectedDay | date}}</h3>
                 </div>
 
-                <div class="col-md-8">
+                <div class="col-md-9">
+                    <input type="text" class="form-control" placeholder="Search" aria-describedby="basic-addon1">
+                </div>
+
+                <div class="col-md-3">
                     <button class="btn btn-success pull-right" type="button" ng-click="refresh()"><i
                             class="fa fa-refresh"></i>
                     </button>
@@ -63,6 +29,48 @@
                 </div>
             </div>
 
+          <h1></h1>
+
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="event in getSelectedEvents()"> {{event.title}}</li>
+                <l1 class="list-group-item" ng-show="getSelectedEvents().length < 1">No events found.</l1>
+            </ul>
+
+        </div>
+        <div class="col-md-8">
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2>{{ calendarTitle }}</h2>
+                </div>
+
+                <div class="col-md-6 text-center">
+                    <div class="btn-group">
+
+                        <button class="btn btn-primary ng-isolate-scope" mwl-date-modifier="" date="calendarDay" decrement="calendarView">
+                            Previous
+                        </button>
+                        <button class="btn btn-default ng-isolate-scope" mwl-date-modifier="" date="calendarDay" set-to-today="">
+                            Today
+                        </button>
+                        <button class="btn btn-primary ng-isolate-scope" mwl-date-modifier="" date="calendarDay" increment="calendarView">
+                            Next
+                        </button>
+                    </div>
+                </div>
+
+                <br class="visible-xs visible-sm">
+
+                <div class="col-md-6 text-center">
+                    <div class="btn-group">
+                        <label class="btn btn-primary ng-untouched ng-valid ng-dirty" ng-model="calendarView" btn-radio="'year'">Year</label>
+                        <label class="btn btn-primary ng-untouched ng-valid ng-dirty" ng-model="calendarView" btn-radio="'month'">Month</label>
+                       <!-- <label class="btn btn-primary ng-untouched ng-valid ng-dirty" ng-model="calendarView" btn-radio="'week'">Week</label>
+                        <label class="btn btn-primary ng-untouched ng-valid ng-dirty active ng-valid-parse" ng-model="calendarView" btn-radio="'day'">Day</label>
+                -->    </div>
+                </div>
+
+            </div>
 
             <mwl-calendar
                     view="calendarView"
@@ -78,35 +86,7 @@
                     on-timespan-click="onTimeSpanClick(calendarDate)"
                     auto-open="true">
             </mwl-calendar>
-            <button
-                    class="btn btn-primary"
-                    mwl-date-modifier
-                    date="calendarDay"
-                    decrement="calendarView">
-                Previous
-            </button>
-
-            <button
-                    class="btn btn-default"
-                    mwl-date-modifier
-                    date="calendarDay"
-                    set-to-today>
-                Today
-            </button>
-
-            <button
-                    class="btn btn-primary"
-                    mwl-date-modifier
-                    date="calendarDay"
-                    increment="calendarView">
-                Next
-            </button>
-
 
         </div>
-
-
     </div>
-
-
 </div>
