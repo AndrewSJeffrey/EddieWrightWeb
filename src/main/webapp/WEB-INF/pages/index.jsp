@@ -48,6 +48,7 @@
 
 <script src="${pageContext.request.contextPath}/resources/ewright/js/services/login-service.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/services/user-service.js"></script>
+<script src="${pageContext.request.contextPath}/resources/ewright/js/services/event-service.js"></script>
 
 <script src="${pageContext.request.contextPath}/resources/ewright/js/controllers/menu-controller.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/controllers/planner-controller.js"></script>

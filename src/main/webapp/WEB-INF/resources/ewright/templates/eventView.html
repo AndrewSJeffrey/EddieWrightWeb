@@ -3,12 +3,12 @@
 
     <div class="modal-header" style="margin-top: 0px">
         <h4> {{event.title}}
-            <small>- Created by: {{event.createdBy}} on {{event.createdOn | date}}</small>
+            <small>- Created by: {{event.createdBy.firstname}} on {{event.createdOn | date}}</small>
         </h4>
     </div>
 
     <div class="modal-body">
-        <h1>{{event.message}}</h1>
+        <p>{{event.message}}</p>
 
     </div>
     <div class="modal-footer row">

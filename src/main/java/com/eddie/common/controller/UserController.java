@@ -1,6 +1,5 @@
 package com.eddie.common.controller;
 
-import com.eddie.LiveChat;
 import com.eddie.common.service.EmailService;
 import com.eddie.common.service.PasswordGenerator;
 import com.eddie.dao.UserDao;

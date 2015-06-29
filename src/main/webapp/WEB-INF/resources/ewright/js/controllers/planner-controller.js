@@ -1,4 +1,4 @@
-angular.module('eWrightControllers').controller('CalendarController', ['$scope', '$modal', function ($scope, $modal) {
+angular.module('eWrightControllers').controller('CalendarController', ['$scope', '$modal', 'EventService', function ($scope, $modal, EventService) {
     //These variables MUST be set as a minimum for the calendar to work
     $scope.calendarView = 'month';
     $scope.calendarDay = new Date();
@@ -40,16 +40,23 @@ angular.module('eWrightControllers').controller('CalendarController', ['$scope',
         }
     ];
 
+    function eventsLoaded(events) {
+        console.log("Events:" + events);
+        $scope.events = events;
+    }
+
+    EventService.getAllEvents(eventsLoaded);
+
 
     $scope.getSelectedEvents = function () {
         var selectedEvents = [];
 
         for (var i = 0; i < $scope.events.length; i++) {
             var event = $scope.events[i];
-            var startDate = new Date(event.startsAt.getTime());
+            var startDate = new Date((new Date(event.startsAt)).getTime());
             startDate.setHours(0, 0, 0, 0);
 
-            var endDate = new Date(event.endsAt.getTime());
+            var endDate =  new Date((new Date(event.endsAt)).getTime());
             endDate.setHours(0, 0, 0, 0);
 
 
