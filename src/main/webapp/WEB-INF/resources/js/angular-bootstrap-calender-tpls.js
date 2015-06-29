@@ -1082,7 +1082,6 @@
                    // month: 'day',
                    // week: 'day'
                 };
-                console.log("$scope.view:" + $scope.view);
                 if ($scope.view == 'month') {
                     return;
                 }

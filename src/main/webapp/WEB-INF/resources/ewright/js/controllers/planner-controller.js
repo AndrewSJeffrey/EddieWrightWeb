@@ -77,8 +77,8 @@ angular.module('eWrightControllers')
                                 newEvent: newEvent,
                                 ToasterService: ToasterService,
                                 EventService: EventService,
-                                refresh : refresh,
-                                blockUI : blockUI
+                                refresh: refresh,
+                                blockUI: blockUI
                             };
                             return model;
                         }
@@ -181,16 +181,16 @@ angular.module('eWrightControllers').controller('EventEditController', function 
     };
 
     $scope.delete = function () {
-        var user = setModifiedBy($scope.user);
-        UserService.deleteUser(user, closeDialog(function () {
-            ToasterService.createToast(ToasterService.PRIORITY.SUCCESS, "User " + user.username + " has been disabled.");
+        blockUI.start();
+        EventService.deleteEvent($scope.event, closeDialog(function () {
+            ToasterService.createToast(ToasterService.PRIORITY.SUCCESS, "Event has been removed.");
         }));
     };
 
     $scope.restore = function () {
-        var user = setModifiedBy($scope.user);
-        UserService.restoreUser(user, closeDialog(function () {
-            ToasterService.createToast(ToasterService.PRIORITY.SUCCESS, "User " + user.username + " has been enabled.");
+        blockUI.start();
+        EventService.restoreEvent($scope.event, closeDialog(function () {
+            ToasterService.createToast(ToasterService.PRIORITY.SUCCESS, "Event has been restored.");
         }));
     };
 
@@ -199,11 +199,6 @@ angular.module('eWrightControllers').controller('EventEditController', function 
         EventService.createEvent($scope.event, closeDialog(function () {
             ToasterService.createToast(ToasterService.PRIORITY.SUCCESS, "Event has been created.");
         }));
-
-        /* var user = setModifiedBy($scope.user);
-         UserService.restoreUser(user, closeDialog(function(){
-         ToasterService.createToast(ToasterService.PRIORITY.SUCCESS, "User " + user.username + " has been enabled.");
-         }));*/
     };
 
     $scope.update = function () {
@@ -211,21 +206,13 @@ angular.module('eWrightControllers').controller('EventEditController', function 
         EventService.updateEvent($scope.event, closeDialog(function () {
             ToasterService.createToast(ToasterService.PRIORITY.SUCCESS, "Event has been updated.");
         }));
-
-        /* var user = setModifiedBy($scope.user);
-         UserService.restoreUser(user, closeDialog(function(){
-         ToasterService.createToast(ToasterService.PRIORITY.SUCCESS, "User " + user.username + " has been enabled.");
-         }));*/
     };
 
-    function setModifiedBy(user) {
-        user.modifiedBy = AppModel.getLoggedInUser().username;
-        return user;
-    }
-
-    function closeDialog(postClose) {
+    function closeDialog(postClose, stopClose) {
         return function () {
-            $modalInstance.dismiss("closing");
+            if (!stopClose) {
+                $modalInstance.dismiss("closing");
+            }
             blockUI.stop();
             model.refresh();
             if (postClose instanceof Function) {

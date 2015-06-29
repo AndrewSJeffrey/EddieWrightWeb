@@ -28,7 +28,7 @@ public class EventController {
     List<Event> getEvents() {
 
         try {
-            List<Event> events =  eventDao.list();
+            List<Event> events = eventDao.activeEvents();
             return events;
         } catch (Exception e) {
             e.printStackTrace();
@@ -53,6 +53,26 @@ public class EventController {
     @RequestMapping(value = "/update", method = {RequestMethod.POST})
     public Event update(@RequestBody final Event event) {
         final Date dateNow = new Date();
+        event.setModifiedAt(dateNow);
+        eventDao.save(event);
+        return event;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/delete", method = {RequestMethod.POST})
+    public Event delete(@RequestBody final Event event) {
+        final Date dateNow = new Date();
+        event.setRemoved(true);
+        event.setModifiedAt(dateNow);
+        eventDao.save(event);
+        return event;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/restore", method = {RequestMethod.POST})
+    public Event restore(@RequestBody final Event event) {
+        final Date dateNow = new Date();
+        event.setRemoved(false);
         event.setModifiedAt(dateNow);
         eventDao.save(event);
         return event;

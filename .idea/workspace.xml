@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f60ded23-a7f1-48b5-80e2-89713bf01051" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/domain/Event.java" afterPath="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/domain/Event.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/eddie/common/controller/EventController.java" afterPath="$PROJECT_DIR$/src/main/java/com/eddie/common/controller/EventController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/EventDao.java" afterPath="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/EventDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/EventDaoImpl.java" afterPath="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/EventDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/angular-bootstrap-calender-tpls.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/angular-bootstrap-calender-tpls.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/event-service.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/event-service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/eventEdit.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/eventEdit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/controllers/planner-controller.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/controllers/planner-controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/planner.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/planner.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/users.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/users.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EddieWright.iws" />
@@ -38,8 +39,8 @@
       <file leaf-file-name="EventController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/eddie/common/controller/EventController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="975">
-              <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="1275">
+              <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,11 +48,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/users.js">
+      <file leaf-file-name="angular-bootstrap-calender-tpls.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/angular-bootstrap-calender-tpls.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1103" max-vertical-offset="2205">
-              <caret line="84" column="54" selection-start-line="84" selection-start-column="18" selection-end-line="84" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.36653388" vertical-offset="16076" max-vertical-offset="17550">
+              <caret line="1084" column="0" selection-start-line="1084" selection-start-column="0" selection-end-line="1084" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EventDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/EventDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+              <caret line="10" column="35" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EventDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/EventDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -80,8 +101,18 @@
       <file leaf-file-name="planner-controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/controllers/planner-controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2785" max-vertical-offset="3615">
-              <caret line="210" column="32" selection-start-line="210" selection-start-column="21" selection-end-line="210" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="3420">
+              <caret line="33" column="38" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/UserDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="675">
+              <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -100,34 +131,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-              <caret line="26" column="28" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="event-service.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="event-service.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/event-service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9145631" vertical-offset="129" max-vertical-offset="810">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="535" max-vertical-offset="1080">
+              <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/eddie/common/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="305" max-vertical-offset="1935">
-              <caret line="56" column="5" selection-start-line="44" selection-start-column="4" selection-end-line="56" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -135,24 +144,14 @@
       <file leaf-file-name="eventEdit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/eventEdit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.48" vertical-offset="1591" max-vertical-offset="2205">
-              <caret line="131" column="111" selection-start-line="131" selection-start-column="105" selection-end-line="131" selection-end-column="111" />
+            <state vertical-scroll-proportion="-3.04" vertical-offset="1648" max-vertical-offset="2205">
+              <caret line="120" column="137" selection-start-line="120" selection-start-column="130" selection-end-line="120" selection-end-column="137" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#fieldset#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#fieldset#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#fieldset#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#3;n#fieldset#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app-model.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/app-model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
-              <caret line="0" column="51" selection-start-line="0" selection-start-column="43" selection-end-line="0" selection-end-column="51" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -187,7 +186,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/angular-simple-calender.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/angular-bootstrap-calender.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/angular-bootstrap-calender.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/angular-bootstrap-calender-tpls.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/dashlet/contacts.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/dashlet/leads.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/dashlet/opportunities.html" />
@@ -197,8 +195,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/dashlet/stock.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/controllers/menu-controller.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/dashlet/home.html" />
-        <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/EventDao.java" />
-        <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/EventDaoImpl.java" />
         <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/domain/User.java" />
         <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/UserDaoImpl.java" />
         <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/resources/hibernate.xml" />
@@ -209,13 +205,16 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/datetimepicker.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/ewright-main.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/eventEdit.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/users.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/planner.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/eddie/common/controller/EventController.java" />
         <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/domain/Event.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/controllers/planner-controller.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/event-service.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/eventEdit.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/controllers/planner-controller.js" />
+        <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/EventDao.java" />
+        <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/EventDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/eddie/common/controller/EventController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/angular-bootstrap-calender-tpls.js" />
       </list>
     </option>
   </component>
@@ -463,6 +462,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ewright" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1323,7 +1326,7 @@
       <updated>1434912278545</updated>
       <workItem from="1434912282192" duration="587000" />
       <workItem from="1434913359098" duration="49162000" />
-      <workItem from="1435067440242" duration="62490000" />
+      <workItem from="1435067440242" duration="64424000" />
     </task>
     <task id="LOCAL-00001" summary="Seperated out beans">
       <created>1434917818276</created>
@@ -1427,11 +1430,17 @@
       <option name="project" value="LOCAL" />
       <updated>1435588317325</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Added update event functionality">
+      <created>1435591225561</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1435591225561</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112239000" />
+    <option name="totallyTimeSpent" value="114173000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1957" y="0" width="1817" height="1123" extended-state="0" />
@@ -1535,7 +1544,8 @@
     <MESSAGE value="Added default pages, added menu bar icons, added logout feature, tidied up event message" />
     <MESSAGE value="Added hibernate join annotations for user to event&#10;" />
     <MESSAGE value="Added create method, posts user and event" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added create method, posts user and event" />
+    <MESSAGE value="Added update event functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added update event functionality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1632,14 +1642,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33226323" vertical-offset="4128" max-vertical-offset="14070">
           <caret line="289" column="15" selection-start-line="289" selection-start-column="15" selection-end-line="289" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/angular-bootstrap-calender-tpls.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3613014" vertical-offset="165" max-vertical-offset="17565">
-          <caret line="64" column="69" selection-start-line="64" selection-start-column="69" selection-end-line="64" selection-end-column="69" />
           <folding />
         </state>
       </provider>
@@ -1780,37 +1782,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/EventDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/EventDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
-          <folding>
-            <element signature="e#684#685#0" expanded="true" />
-            <element signature="e#736#737#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../EddieWrightCore/src/main/resources/hibernate.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.88" vertical-offset="653" max-vertical-offset="1395">
           <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/UserDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="675">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1909,19 +1884,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/eventEdit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.48" vertical-offset="1591" max-vertical-offset="2205">
-          <caret line="131" column="111" selection-start-line="131" selection-start-column="105" selection-end-line="131" selection-end-column="111" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#fieldset#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#fieldset#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#fieldset#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#3;n#fieldset#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/app-model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
@@ -1936,17 +1898,6 @@
           <caret line="45" column="70" selection-start-line="45" selection-start-column="70" selection-end-line="45" selection-end-column="70" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/planner.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.1" vertical-offset="0" max-vertical-offset="1845">
-          <caret line="47" column="41" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1977,28 +1928,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/planner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.1" vertical-offset="0" max-vertical-offset="1845">
+          <caret line="47" column="41" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="42" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/eventEdit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.04" vertical-offset="1648" max-vertical-offset="2205">
+          <caret line="120" column="137" selection-start-line="120" selection-start-column="130" selection-end-line="120" selection-end-column="137" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#fieldset#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#fieldset#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#fieldset#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#3;n#fieldset#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/event-service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="535" max-vertical-offset="1080">
+          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/controllers/planner-controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="3420">
+          <caret line="33" column="38" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/UserDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="675">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/EventDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/EventDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/eddie/common/controller/EventController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="460" max-vertical-offset="975">
-          <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="1275">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/controllers/planner-controller.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/js/angular-bootstrap-calender-tpls.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2785" max-vertical-offset="3615">
-          <caret line="210" column="32" selection-start-line="210" selection-start-column="21" selection-end-line="210" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/event-service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9145631" vertical-offset="129" max-vertical-offset="810">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.36653388" vertical-offset="16076" max-vertical-offset="17550">
+          <caret line="1084" column="0" selection-start-line="1084" selection-start-column="0" selection-end-line="1084" selection-end-column="0" />
           <folding />
         </state>
       </provider>

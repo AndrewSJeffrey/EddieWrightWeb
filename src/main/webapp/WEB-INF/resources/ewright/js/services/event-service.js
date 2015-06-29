@@ -17,6 +17,22 @@ angular.module('eWrightServices').service('EventService', ['DAOAbstract', 'AppMo
         });
     }
 
+    function restoreEvent(event, callback) {
+        dao.postURL("/restore", repack(event), function () {
+            if (callback instanceof Function) {
+                callback();
+            }
+        });
+    }
+
+    function deleteEvent(event, callback) {
+        dao.postURL("/delete", repack(event), function () {
+            if (callback instanceof Function) {
+                callback();
+            }
+        });
+    }
+
     function updateEvent(event, callback) {
         dao.postURL("/update", repack(event), function () {
             if (callback instanceof Function) {
@@ -37,13 +53,15 @@ angular.module('eWrightServices').service('EventService', ['DAOAbstract', 'AppMo
             removed: event.removed ? event.removed : false,
             modifiedAt: event.modifiedAt ? new Date(event.modifiedAt) : new Date(),
             createdAt: event.createdAt ? new Date(event.createdAt) : new Date()
-        } ;
+        };
         return object;
     }
 
     return ({
         getAllEvents: getAllEvents,
         createEvent: createEvent,
-        updateEvent: updateEvent
+        updateEvent: updateEvent,
+        deleteEvent: deleteEvent,
+        restoreEvent: restoreEvent
     })
 }]);
