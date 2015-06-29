@@ -2,13 +2,16 @@ package com.eddie.common.controller;
 
 import com.eddie.dao.EventDao;
 import com.eddie.domain.Event;
+import com.eddie.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -26,12 +29,22 @@ public class EventController {
 
         try {
             List<Event> events =  eventDao.list();
-            System.out.println("size:" + events.size());
             return events;
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         return null;
+    }
+
+
+    @ResponseBody
+    @RequestMapping(value = "/new", method = {RequestMethod.POST})
+    public Event create(@RequestBody final Event event) {
+        final Date dateNow = new Date();
+        System.out.println(event);
+
+
+        return event;
     }
 }
