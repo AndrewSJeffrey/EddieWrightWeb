@@ -30,32 +30,47 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
         var homeMenuItem = createMenuItem("Home", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/home.html', function () {
             return true;
         });
+        homeMenuItem.icon = "fa fa-home";
 
-        var tasksMenuItem = createMenuItem("Tasks", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/prospecting.html', function () {
+        var tasksMenuItem = createMenuItem("Tasks", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/tasks.html', function () {
             return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
         });
+        tasksMenuItem.icon = "fa fa-list";
 
-        var opportunitiesMenuItem = createMenuItem("Opportunities", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/prospecting.html', function () {
+        var opportunitiesMenuItem = createMenuItem("Opportunities", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/opportunities.html', function () {
             return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
         });
+        opportunitiesMenuItem.icon = "fa fa-inbox";
 
 
-        var leadsMenuItem = createMenuItem("Leads", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/prospecting.html', function () {
+
+        var leadsMenuItem = createMenuItem("Leads", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/leads.html', function () {
             return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
         });
+        leadsMenuItem.icon = "fa fa-star";
+
+        var stockMenuItem = createMenuItem("Stock", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/stock.html', function () {
+            return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
+        });
+        stockMenuItem.icon = "fa fa-car";
+
 
         var plannerMenuItem = createMenuItem("Calender", MENU_TYPE.single, null, true, 'resources/ewright/templates/planner.html', function () {
             return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
         });
+        plannerMenuItem.icon = "fa fa-calendar";
 
-        var contactsMenuItem = createMenuItem("Contacts", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/prospecting.html', function () {
+        var contactsMenuItem = createMenuItem("Contacts", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/contacts.html', function () {
             return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
         });
+        contactsMenuItem.icon  = "fa fa-users";
 
 
-        var accountSettings = createMenuItem("Users", MENU_TYPE.element, null, false, 'resources/ewright/templates/dashlet/users.html', function () {
+
+        var accountSettings = createMenuItem("Settings", MENU_TYPE.element, null, false, 'resources/ewright/templates/dashlet/users.html', function () {
             return AppModel.hasPermission(['ADMINISTRATOR']);
         });
+        accountSettings.icon  = "fa fa-cogs";
 
         var logoutMenuItem = createMenuItem("Logout", MENU_TYPE.element, function() {
             selectedMainMenuItem = homeMenuItem;
@@ -64,6 +79,8 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
         }, false, 'resources/ewright/templates/dashlet/users.html', function () {
             return true;
         });
+        logoutMenuItem.icon = "fa fa-sign-out";
+
 
         //settingsMenuItem.addChild(accountSettings);
 
@@ -72,6 +89,7 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
             tasksMenuItem,
             opportunitiesMenuItem,
             leadsMenuItem,
+            stockMenuItem,
             plannerMenuItem,
             contactsMenuItem,
             accountSettings,
@@ -98,7 +116,8 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
                 addChild: function (childMenuItem) {
                     this.children.push(childMenuItem);
                     childMenuItem.parent = this;
-                }
+                },
+                icon : "fa fa-cogs"
             };
 
             menuItem.onClick = function () {

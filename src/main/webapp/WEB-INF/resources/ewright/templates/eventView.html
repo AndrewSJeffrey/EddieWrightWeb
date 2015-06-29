@@ -1,0 +1,24 @@
+<div>
+
+
+    <div class="modal-header" style="margin-top: 0px">
+        <h4> {{event.title}}
+            <small>- Created by: {{event.createdBy}} on {{event.createdOn | date}}</small>
+        </h4>
+    </div>
+
+    <div class="modal-body">
+        <h1>{{event.message}}</h1>
+
+    </div>
+    <div class="modal-footer row">
+        <div class="col-md-12">
+            <div class="pull-right">
+                <button class="btn"> Close</button>
+            </div>
+            <div class="pull-left">
+                <button class="btn btn-success"> #{{event.ticketID }}</button>
+            </div>
+        </div>
+    </div>
+</div>

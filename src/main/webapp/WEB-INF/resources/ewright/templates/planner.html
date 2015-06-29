@@ -32,7 +32,30 @@
           <h1></h1>
 
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="event in getSelectedEvents()"> {{event.title}}</li>
+                <li class="list-group-item" ng-repeat="event in getSelectedEvents()" style="margin-bottom: 5px">
+
+                    <div>
+                        {{event.title}}
+                        <br>
+                        <br>
+                        {{event.message}}
+                        <br>
+                        <br>
+                        {{event.ticketID}}
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="pull-left">Created By: {{event.createdBy}}</label>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-success pull-right" type="button" ng-click="open(event)"><i
+                                    class="fa fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+
                 <l1 class="list-group-item" ng-show="getSelectedEvents().length < 1">No events found.</l1>
             </ul>
 

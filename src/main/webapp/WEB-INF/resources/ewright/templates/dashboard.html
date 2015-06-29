@@ -10,8 +10,12 @@
 
             <li ng-class="{active: menu.selected == true}"
                 ng-repeat="menu in mainMenu">
+
+
                 <a href="#" ng-click="menu.onClick()">
+                    <i class="{{menu.icon}}"></i>
                     {{menu.title}}
+
                     <span class="selected"/>
                 </a>
                 <ul class="dropdown-menu pull-left">
