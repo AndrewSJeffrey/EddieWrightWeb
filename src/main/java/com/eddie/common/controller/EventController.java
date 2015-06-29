@@ -42,9 +42,19 @@ public class EventController {
     @RequestMapping(value = "/new", method = {RequestMethod.POST})
     public Event create(@RequestBody final Event event) {
         final Date dateNow = new Date();
-        System.out.println(event);
+        event.setId(null);
+        event.setCreatedAt(dateNow);
+        event.setModifiedAt(dateNow);
+        eventDao.save(event);
+        return event;
+    }
 
-
+    @ResponseBody
+    @RequestMapping(value = "/update", method = {RequestMethod.POST})
+    public Event update(@RequestBody final Event event) {
+        final Date dateNow = new Date();
+        event.setModifiedAt(dateNow);
+        eventDao.save(event);
         return event;
     }
 }
