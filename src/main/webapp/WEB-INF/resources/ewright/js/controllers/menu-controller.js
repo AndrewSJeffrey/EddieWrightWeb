@@ -32,15 +32,17 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
         });
         homeMenuItem.icon = "fa fa-home";
 
-        var tasksMenuItem = createMenuItem("Tasks", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/tasks.html', function () {
+        var tasksMenuItem = createMenuItem('Tasks', MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/tasks.html', function () {
             return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
         });
         tasksMenuItem.icon = "fa fa-list";
+        tasksMenuItem.count = 50;
 
         var opportunitiesMenuItem = createMenuItem("Opportunities", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/opportunities.html', function () {
             return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
         });
         opportunitiesMenuItem.icon = "fa fa-inbox";
+        opportunitiesMenuItem.count = 25;
 
 
 
@@ -48,6 +50,7 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
             return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
         });
         leadsMenuItem.icon = "fa fa-star";
+        leadsMenuItem.count = 3;
 
         var stockMenuItem = createMenuItem("Stock", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/stock.html', function () {
             return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
@@ -59,6 +62,7 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
             return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
         });
         plannerMenuItem.icon = "fa fa-calendar";
+        plannerMenuItem.count = 1;
 
         var contactsMenuItem = createMenuItem("Contacts", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/contacts.html', function () {
             return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);

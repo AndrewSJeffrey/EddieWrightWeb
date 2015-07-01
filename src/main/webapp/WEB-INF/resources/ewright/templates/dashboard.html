@@ -15,6 +15,7 @@
                 <a href="#" ng-click="menu.onClick()">
                     <i class="{{menu.icon}}"></i>
                     {{menu.title}}
+                    <span ng-show="menu.count > 0" class="label label-danger">{{menu.count}}</span>
 
                     <span class="selected"/>
                 </a>

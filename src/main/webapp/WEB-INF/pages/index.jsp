@@ -60,6 +60,7 @@
 <script src="${pageContext.request.contextPath}/resources/ewright/js/directives/toaster.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/directives/users.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/directives/username.js"></script>
+<script src="${pageContext.request.contextPath}/resources/ewright/js/directives/opportunityList.js"></script>
 
 
 </html>

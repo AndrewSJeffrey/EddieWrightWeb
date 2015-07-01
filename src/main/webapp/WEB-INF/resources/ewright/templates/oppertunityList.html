@@ -1,0 +1,25 @@
+<div class="row" style="padding:5px;">
+
+    <label class="col-md-12 text-center">
+        <h3>{{header}}</h3>
+    </label>
+
+
+
+
+    <input type="text" class="form-control" placeholder="Search">
+
+    <div class="input-group">
+        <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened"
+               datepicker-options="dateOptions" ng-required="true" close-text="Close"/>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i
+                        class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+    </div>
+
+
+    <opportunity ng-repeat="opp in model.opportunities" opportunity-obj="opp"></opportunity>
+
+
+</div>
