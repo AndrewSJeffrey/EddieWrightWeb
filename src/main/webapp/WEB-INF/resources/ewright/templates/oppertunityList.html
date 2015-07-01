@@ -5,8 +5,6 @@
     </label>
 
 
-
-
     <input type="text" class="form-control" placeholder="Search">
 
     <div class="input-group">
@@ -19,7 +17,9 @@
     </div>
 
 
-    <opportunity ng-repeat="opp in model.opportunities" opportunity-obj="opp"></opportunity>
+    <ul class="list-group">
+        <opportunity ng-repeat="opp in model.opportunities" opportunity-obj="opp"></opportunity>
+    </ul>
 
 
 </div>

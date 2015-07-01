@@ -1,25 +1,43 @@
-angular.module('eWrightDirectives').directive('opportunityViewer', function () {
-
-
+angular.module('eWrightDirectives').directive('opportunityContainer', function () {
     var controller = ['$scope', function ($scope) {
-
         $scope.model = {
-            opportunities : [
+            opportunities: [
                 {
-                    id : 1
+                    id: 1
                 },
                 {
-                    id : 2
+                    id: 1
                 },
                 {
-                    id : 3
-                },
-                {
-                    id : 4
+                    id: 1
                 }
             ]
-
         };
+    }];
+
+    return {
+        restrict: 'E',
+        scope: {},
+        controller: controller,
+        templateUrl: '/resources/ewright/templates/opportunityContainer.html',
+        link: function (scope, elem, attrs) {
+        },
+        compile: function (tElem, attrs) {
+
+        }
+    };
+
+
+});
+
+
+angular.module('eWrightDirectives').directive('opportunityViewer', function () {
+
+    var controller = ['$scope', function ($scope) {
+        $scope.model = {
+            opportunities : $scope.listItems
+        };
+
 
 
         function model() {
@@ -29,7 +47,8 @@ angular.module('eWrightDirectives').directive('opportunityViewer', function () {
         function handleLogin(data) {
 
         }
-        $scope.today = function() {
+
+        $scope.today = function () {
             $scope.dt = new Date();
         };
         $scope.today();
@@ -39,16 +58,16 @@ angular.module('eWrightDirectives').directive('opportunityViewer', function () {
         };
 
         // Disable weekend selection
-        $scope.disabled = function(date, mode) {
+        $scope.disabled = function (date, mode) {
             return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
         };
 
-        $scope.toggleMin = function() {
+        $scope.toggleMin = function () {
             $scope.minDate = $scope.minDate ? null : new Date();
         };
         $scope.toggleMin();
 
-        $scope.open = function($event) {
+        $scope.open = function ($event) {
             $event.preventDefault();
             $event.stopPropagation();
 
@@ -79,12 +98,12 @@ angular.module('eWrightDirectives').directive('opportunityViewer', function () {
                 }
             ];
 
-        $scope.getDayClass = function(date, mode) {
+        $scope.getDayClass = function (date, mode) {
             if (mode === 'day') {
-                var dayToCheck = new Date(date).setHours(0,0,0,0);
+                var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
 
-                for (var i=0;i<$scope.events.length;i++){
-                    var currentDay = new Date($scope.events[i].date).setHours(0,0,0,0);
+                for (var i = 0; i < $scope.events.length; i++) {
+                    var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
 
                     if (dayToCheck === currentDay) {
                         return $scope.events[i].status;
@@ -97,14 +116,14 @@ angular.module('eWrightDirectives').directive('opportunityViewer', function () {
 
 
 
-
     }];
 
 
     return {
         restrict: 'E',
         scope: {
-            header : "@header"
+            header: "@header",
+            listItems : "=listItems"
         },
         controller: controller,
         templateUrl: '/resources/ewright/templates/oppertunityList.html',
@@ -121,19 +140,23 @@ angular.module('eWrightDirectives').directive('opportunity', function () {
 
     var controller = ['$scope', function ($scope) {
 
-        $scope.model = {};
+        $scope.model = {
+            opportunity : $scope.opportunityObj
+        };
 
 
-        $scope.click = function() {
-            console.log($scope.poi);
+        $scope.click = function () {
+            console.log($scope.opportunityObj);
         }
+
+
     }];
 
 
     return {
         restrict: 'E',
         scope: {
-            opportunityObj : "=opportunityObj"
+            opportunityObj: "=opportunityObj"
         },
         controller: controller,
         templateUrl: '/resources/ewright/templates/opportunity.html',
