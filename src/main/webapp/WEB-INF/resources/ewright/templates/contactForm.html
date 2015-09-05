@@ -1,0 +1,145 @@
+<div>
+    <form class="form-horizontal" role="form" name="form" novalidate>
+        <div class="modal-header">
+            <h3 class="modal-title" ng-show="model.newuser">New Contact</h3>
+
+            <h3 class="modal-title" ng-hide="model.newuser">Edit Contact</h3>
+        </div>
+        <div class="modal-body">
+
+
+            <fieldset>
+
+
+                <form class="form-horizontal" role="form">
+                    <fieldset>
+
+                        <legend>Customer Details</legend>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="textinput">Name</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" placeholder="First Name" class="form-control" ng-model="contact.firstName">
+                            </div>
+
+                            <label class="col-sm-2 control-label" for="textinput">Surname</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" placeholder="Surname" class="form-control" ng-model="contact.surname">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="textinput">Mobile</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" placeholder="Mobile" class="form-control" ng-model="contact.mobile">
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="textinput">Telephone</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" placeholder="Telephone" class="form-control" ng-model="contact.telephone">
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="textinput">Email</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" placeholder="Email" class="form-control" ng-model="contact.email">
+                            </div>
+                        </div>
+
+                        <!-- Form Name -->
+                        <legend>Address Details</legend>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="textinput">Line 1</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" placeholder="Address Line 1" class="form-control" ng-model="contact.addressLine1">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="textinput">Line 2</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" placeholder="Address Line 2" class="form-control" ng-model="contact.addressLine2">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="textinput">City</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" placeholder="City" class="form-control" ng-model="contact.addressLine3">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="textinput">County</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" placeholder="State" class="form-control" ng-model="contact.country">
+                            </div>
+
+                            <label class="col-sm-2 control-label" for="textinput">Postcode</label>
+
+                            <div class="col-sm-4">
+                                <input type="text" placeholder="Post Code" class="form-control" ng-model="contact.postcode">
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+                </form>
+
+            </fieldset>
+        </div>
+        <div class="modal-footer">
+            <div class="form-group">
+                <div class="col-sm-2">
+                    <div class="pull-left">
+
+
+                        <button ng-hide="model.newuser" ng-show="!user.removed" type="submit" class="btn btn-danger"
+                                ng-click="delete()">Delete
+                            Record
+                        </button>
+
+                        <button ng-hide="model.newuser" ng-show="user.removed" type="submit" class="btn btn-success"
+                                ng-click="restore()">Restore
+                            Record
+                        </button>
+
+
+                    </div>
+
+                </div>
+                <div class="col-sm-10">
+                    <div class="pull-right">
+                        <button ng-hide="model.newuser" type="submit" class="btn btn-primary" ng-click="update()"
+                                ng-disabled="form.$invalid"> Update
+                            Record
+                        </button>
+                        <button ng-show="model.newuser" type="submit" class="btn btn-primary" ng-click="create()"
+                                ng-disabled="form.$invalid">Create
+                            Record
+                        </button>
+                        <button type="submit" class="btn btn-default" ng-click="cancel()">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

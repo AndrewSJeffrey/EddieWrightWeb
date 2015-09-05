@@ -51,6 +51,8 @@
 <script src="${pageContext.request.contextPath}/resources/ewright/js/services/login-service.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/services/user-service.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/services/event-service.js"></script>
+<script src="${pageContext.request.contextPath}/resources/ewright/js/services/opportunity-service.js"></script>
+<script src="${pageContext.request.contextPath}/resources/ewright/js/services/contact-service.js"></script>
 
 <script src="${pageContext.request.contextPath}/resources/ewright/js/controllers/menu-controller.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/controllers/planner-controller.js"></script>
@@ -61,6 +63,7 @@
 <script src="${pageContext.request.contextPath}/resources/ewright/js/directives/users.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/directives/username.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/directives/opportunityList.js"></script>
+<script src="${pageContext.request.contextPath}/resources/ewright/js/directives/contacts.js"></script>
 
 
 </html>

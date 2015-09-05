@@ -89,21 +89,21 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
         //settingsMenuItem.addChild(accountSettings);
 
         var mainMenu = [
-            homeMenuItem,
+           // homeMenuItem,
             tasksMenuItem,
             opportunitiesMenuItem,
-            leadsMenuItem,
-            stockMenuItem,
-            plannerMenuItem,
+           // leadsMenuItem,
+         //   stockMenuItem,
             contactsMenuItem,
+            plannerMenuItem,
             accountSettings,
             logoutMenuItem
         ];
 
 
-        //    THIS SETS THE DEFAULT MENU ITEM! - MUST BE MAP ON COMMIT
-        var selectedMainMenuItem = homeMenuItem;
-        homeMenuItem.onClick();
+        //    THIS SETS THE DEFAULT MENU ITEM! - MUST BE HOME ON COMMIT
+        var selectedMainMenuItem = contactsMenuItem;
+        contactsMenuItem.onClick();
 
         function createMenuItem(title, type, onClick, selected, url, permission) {
             var menuItem = {

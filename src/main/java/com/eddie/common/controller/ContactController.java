@@ -5,10 +5,7 @@ import com.eddie.domain.Contact;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -36,6 +33,40 @@ public class ContactController {
         return null;
     }
 
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    List<Contact> search(@RequestParam(value = "search") String search) {
+        try {
+            List<Contact> contacts = contactDao.search(search);
+            return contacts;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @RequestMapping(value = "/searchFirstName", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    List<Contact> startsWith(@RequestParam(value = "search") String search) {
+        try {
+            List<Contact> contacts = contactDao.searchFirstName(search);
+            return contacts;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+
+    @ResponseBody
+    @RequestMapping(value = "/count", method = {RequestMethod.GET})
+    public int count() {
+        return contactDao.count();
+    }
+
     @ResponseBody
     @RequestMapping(value = "/new", method = {RequestMethod.POST})
     public Contact create(@RequestBody final Contact contact) {
@@ -43,6 +74,7 @@ public class ContactController {
         contact.setId(null);
         contact.setCreatedOn(dateNow);
         contact.setModifiedOn(dateNow);
+        contact.setModifiedBy(contact.getCreatedBy());
         contactDao.save(contact);
         return contact;
     }
@@ -52,7 +84,12 @@ public class ContactController {
     public Contact update(@RequestBody final Contact contact) {
         final Date dateNow = new Date();
         contact.setModifiedOn(dateNow);
-        contactDao.save(contact);
+        contact.setModifiedBy(contact.getCreatedBy());
+        try {
+            contactDao.save(contact);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
         return contact;
     }
 

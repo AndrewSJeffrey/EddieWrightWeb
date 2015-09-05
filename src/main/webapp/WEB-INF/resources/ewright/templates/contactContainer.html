@@ -1,0 +1,68 @@
+<div class="row">
+
+    <!--<input ng-model="model.searchText" placeholder="Search">
+    <button ng-click="search()">Search</button>
+    <button ng-click="create()">Create New</button>-->
+
+
+
+    <div style="width: 4%; float:left; min-width: 25px;" >
+            <button type="button" class="btn btn-default" style="width: 100%"
+                    ng-repeat="alpha in model.letters"
+                    ng-click="setSelectedLetter(alpha)">
+                {{alpha}}
+            </button>
+
+
+    </div>
+
+    <div style="width: 96%; float:right">
+
+
+        <div class="input-group" style="margin-left: 10px; margin-right: 10px">
+            <input type="text" class="form-control" placeholder="Search for..." ng-model="model.searchText">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+             <span class="input-group-btn">
+         <button class="btn btn-success" type="button" ng-click="open(true)"><i
+                 class="fa fa-plus"></i></button>
+      </span>
+        </div>
+
+        <!-- /input-group -->
+
+        <div class="container" style="width: 100%;">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Mobile No.</th>
+                    <th>Phone No.</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="contact in  model.contacts">
+                    <td> {{contact.firstName}}</td>
+                    <td> {{contact.surname}}</td>
+                    <td> {{contact.mobile}}</td>
+                    <td> {{contact.telephone}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>
+
+                        <button class="btn btn-warning pull-right" type="button" ng-click="open(false, contact)"><i class="fa fa-cogs"></i></button>
+                        <button class="btn btn-success pull-right" type="button" ng-click="open(false, contact)"><i class="fa fa-pencil-square-o"></i></button>
+                    </td>
+
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>

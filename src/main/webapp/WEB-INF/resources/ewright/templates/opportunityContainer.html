@@ -1,7 +1,90 @@
 <div class="row">
-    <div ng-repeat="ops in model.opportunities">opportunities</div>
 
-    <opportunity-viewer class="col-md-4" header="New" list-items="model.opportunities"></opportunity-viewer>
-    <opportunity-viewer class="col-md-4" header="Awaiting Action" list-items="model.opportunities"></opportunity-viewer>
-    <opportunity-viewer class="col-md-4" header="Actioned" list-items="model.opportunities"></opportunity-viewer>
+
+    <div class="row">
+
+
+        <div class="col-md-8 pull-left">
+            <ul class="nav nav-pills">
+                <li role="presentation" ng-click="show('SEARCH')"><a href="#">Search</a></li>
+                <li role="presentation" ng-click="show('ATTENTION_REQUIRED')"><a href="#">Attention Required</a></li>
+                <li role="presentation" ng-click="show('AWAITING_ACTION')"><a href="#">Awaiting Action</a></li>
+                <li role="presentation" ng-click="show('ACTIONED')"><a href="#">Actioned</a></li>
+            </ul>
+        </div>
+
+        <div class="col-md-4 pull-right">
+            <button class="btn btn-success pull-right">Create New Opportunity</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div>
+    <table class="table table-striped table-hover table-condensed">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Created At</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Telephone</th>
+            <th>Mobile</th>
+            <th>E-mail</th>
+            <th>Source</th>
+            <th>Comments</th>
+            <th>Manager</th>
+            <th>S/E</th>
+            <th>Apt?</th>
+            <th>Action</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr ng-repeat="opp in getSelectedView()">
+            <td>{{opp.id}}</td>
+            <td>{{opp.createdOn | date}}</td>
+            <td>{{opp.contact.firstName}} {{opp.contact.surname}}</td>
+            <td>{{opp.contact.addressLine1}} - {{opp.contact.postcode}}</td>
+            <td>{{opp.contact.telephone}}</td>
+            <td>{{opp.contact.mobile}}</td>
+            <td>{{opp.contact.email}}</td>
+            <td>{{opp.source.name}}</td>
+            <td>{{opp.notes}}</td>
+            <td>{{opp.manager}}</td>
+            <td>{{opp.salesExecutive}}</td>
+            <td ng-hide="opp.appointment == null"><i class="fa fa-check-square-o"></i></td>
+            <td ng-show="opp.appointment == null"><i class="fa fa-square-o"></i></td>
+            <td>{{opp.currentAction}}</td>
+        </tr>
+        <!--   <tr ng-repeat="row in rowCollection" ng-style="removedRowColor(row)">
+               <td>{{row.username}}</td>
+               <td>{{row.role}}</td>
+               <td>{{row.firstname}}</td>
+               <td>{{row.surname}}</td>
+               <td>{{row.email}}</td>
+               <td>{{row.dateLastLogin | date:'dd/MM/yyyy @ h:mma'}}</td>
+               <td>{{row.dateCreated | date:'dd/MM/yyyy @ h:mma'}}</td>
+               <td>{{row.dateModified | date:'dd/MM/yyyy @ h:mma'}}</td>
+               <td>{{row.modifiedBy}}</td>
+
+               <td ng-hide="row.removed">  <i class="fa fa-check-square-o"></i></td>
+               <td ng-show="row.removed">  <i class="fa fa-square-o"></i></td>
+
+               <td>
+                   <button class="btn btn-warning pull-right" type="button" ng-click="open(false, row)"><i class="fa fa-pencil-square-o"></i></button>
+               </td>
+           </tr>-->
+        </tbody>
+    </table>
+
+</div>
+
+
+<!-- <opportunity-viewer class="col-md-4" header="New" list-items="model.opportunities"></opportunity-viewer>
+ <opportunity-viewer class="col-md-4" header="Awaiting Action" list-items="model.opportunities"></opportunity-viewer>
+ <opportunity-viewer class="col-md-4" header="Actioned" list-items="model.opportunities"></opportunity-viewer>-->
 </div>

@@ -1,18 +1,59 @@
 angular.module('eWrightDirectives').directive('opportunityContainer', function () {
-    var controller = ['$scope', function ($scope) {
+    var controller = ['$scope', 'OpportunityService', function ($scope, OpportunityService) {
         $scope.model = {
-            opportunities: [
-                {
-                    id: 1
-                },
-                {
-                    id: 1
-                },
-                {
-                    id: 1
-                }
-            ]
+
+            opportunities: {
+                SEARCH : [],
+                ATTENTION_REQUIRED: [],
+                AWAITING_ACTION: [],
+                ACTIONED: []
+            },
+            selectedView : 'ATTENTION_REQUIRED'
         };
+        function model() {
+            return $scope.model;
+        }
+
+        function handleDataLoad(data) {
+
+            model().opportunities.ATTENTION_REQUIRED = [];
+            model().opportunities.AWAITING_ACTION = [];
+            model().opportunities.ACTIONED = [];
+
+            console.log(data[0].id);
+            for (var i = 0; i < data.length; i++){
+
+                console.log(data[i].id)
+                console.log(data[i].currentAction)
+                model().opportunities[data[i].currentAction].push(data[i]);
+            }
+
+            console.log( model().opportunities.ATTENTION_REQUIRED.length);
+            console.log( model().opportunities.AWAITING_ACTION.length);
+            console.log( model().opportunities.ACTIONED.length);
+           // $scope.model.opportunities = data;
+        }
+
+        function refresh() {
+            OpportunityService.getAllOpportunities(handleDataLoad)
+        }
+
+        refresh();
+
+        $scope.$watch('model.opportunities', function (value) {
+            console.log("changed?:" + value)
+        });
+
+        $scope.show = function(display) {
+            console.log(display);
+            model().selectedView = display;
+        };
+
+        $scope.getSelectedView = function () {
+            return model().opportunities[  model().selectedView];
+        }
+
+
     }];
 
     return {
@@ -35,9 +76,8 @@ angular.module('eWrightDirectives').directive('opportunityViewer', function () {
 
     var controller = ['$scope', function ($scope) {
         $scope.model = {
-            opportunities : $scope.listItems
+            opportunities: $scope.listItems
         };
-
 
 
         function model() {
@@ -114,6 +154,10 @@ angular.module('eWrightDirectives').directive('opportunityViewer', function () {
             return '';
         };
 
+        $scope.click = function() {
+            console.log("listItems:" + $scope.listItems)
+        }
+        $scope.click();
 
 
     }];
@@ -123,13 +167,17 @@ angular.module('eWrightDirectives').directive('opportunityViewer', function () {
         restrict: 'E',
         scope: {
             header: "@header",
-            listItems : "=listItems"
+            listItems: "=listItems"
         },
         controller: controller,
         templateUrl: '/resources/ewright/templates/oppertunityList.html',
         link: function (scope, elem, attrs) {
+            scope.$watch('listItems', function (newValue, oldValue) {
+              console.log("changed?jasd")
+            });
         },
         compile: function (tElem, attrs) {
+
 
         }
     };
@@ -141,7 +189,7 @@ angular.module('eWrightDirectives').directive('opportunity', function () {
     var controller = ['$scope', function ($scope) {
 
         $scope.model = {
-            opportunity : $scope.opportunityObj
+            opportunity: $scope.opportunityObj
         };
 
 
