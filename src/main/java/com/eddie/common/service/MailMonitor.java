@@ -1,14 +1,19 @@
 package com.eddie.common.service;
 
+import com.eddie.dao.ContactDao;
 import com.eddie.dao.EmailMessageDao;
+import com.eddie.domain.Contact;
 import com.eddie.domain.EmailMessage;
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.mail.*;
 import javax.mail.internet.MimeMessage;
+import javax.xml.bind.SchemaOutputResolver;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;
 
 
@@ -17,16 +22,20 @@ public class MailMonitor {
 
 
     private EmailMessageDao emailMessageDao;
+    private ContactDao contactDao;
 
-
-    public void runMe(EmailMessageDao emailMessageDao) {
+    public MailMonitor(EmailMessageDao emailMessageDao, ContactDao contactDao) {
         this.emailMessageDao = emailMessageDao;
-        check("ajeffrey@fleetsmart.co.uk", "swip3r/vag09");
+        this.contactDao = contactDao;
     }
 
 
+    public void runMe() {
+        check("ajeffrey@fleetsmart.co.uk", "swip3r/vag09");
+    }
+
     public void check(String user,
-                             String password) {
+                      String password) {
         try {
             Properties properties = new Properties();
             properties.put("mail.smtp.host", "smtp.gmail.com");
@@ -44,9 +53,9 @@ public class MailMonitor {
             emailFolder.open(Folder.READ_ONLY);
 
             Message[] messages = emailFolder.getMessages();
-            final FetchProfile fp=new FetchProfile();
+            final FetchProfile fp = new FetchProfile();
             fp.add("Message-Id");
-            emailFolder.fetch(messages,fp);
+            emailFolder.fetch(messages, fp);
 
             for (Message message : messages) {
                 EmailMessage emailMessage = new EmailMessage();
@@ -57,6 +66,12 @@ public class MailMonitor {
                 emailMessage.setUid(((MimeMessage) message).getMessageID());
                 emailMessage.setReceivedDate(message.getReceivedDate());
                 emailMessage.setParsedDate(new Date());
+
+                List<Contact> search = contactDao.search(emailMessage.getEmail());
+                if (search != null && search.size() == 1) {
+
+                    emailMessage.setAssignedContact(search.get(0));
+                }
                 emailMessageDao.save(emailMessage);
             }
 
@@ -110,7 +125,56 @@ public class MailMonitor {
 
     public void processBody(EmailMessage message, String body) {
 
-        if (body.toUpperCase().contains("CLIENT DETAILS")) {
+
+        if (body.toUpperCase().contains("has made an enquiry on the".toUpperCase())) {
+            String name = body.split(",")[1].split("has made an enquiry on the")[0].trim();
+            String vehicle = body.split("has made an enquiry on the")[1].split("Message:")[0].trim();
+            String detail = body.split("Message:")[1].split("Please contact")[0].trim();
+            String email = body.split("Email:")[1].split("Thank you")[0].trim();
+
+            message.setName(name);
+            message.setEmail(email);
+            message.setDetails(vehicle + "\n" + detail);
+
+        }
+
+        else if (body.toUpperCase().contains("Your Sales Lead".toUpperCase())) {
+
+            Document doc = Jsoup.parse(body);
+            body = doc.text()
+                    .replace("Name:", "\nName:")
+                    .replace("Phone:", "\nPhone:")
+                    .replace("Email:", "\nEmail:")
+                    .replace("Detail:", "\nDetail:")
+                    .replace("Your Vehicle", "\nYour Vehicle");
+
+            final String[] lines = body.split("\n");
+
+            for (final String line : lines) {
+
+
+                if (line.contains("Name:")) {
+                    final String name = line.replace("Name:", "").trim();
+                    message.setName(name);
+                }
+
+                if (line.contains("Email:")) {
+                    final String email = line.replace("Email:", "").split("<")[0].trim();
+                    message.setEmail(email);
+                }
+
+                if (line.contains("Phone:")) {
+                    final String number = line.replace("Phone:", "").trim();
+                    message.setPhoneNumber(number);
+                }
+
+                if (line.contains("Detail:")) {
+                    final String detail = line.replace("Detail:", "").trim();
+                    message.setDetails(detail);
+                }
+            }
+
+            } else if (body.toUpperCase().contains("CLIENT DETAILS")) {
             final String[] lines = body.split("\n");
             String details = "";
             for (final String line : lines) {
@@ -156,23 +220,23 @@ public class MailMonitor {
                     message.setName(lines[i + 1].trim());
                 }
                 if (lines[i].contains("Message")) {
-                    details += "Message: "+ lines[i + 1].trim() + '\n';
+                    details += "Message: " + lines[i + 1].trim() + '\n';
                 }
                 if (lines[i].contains("Telephone number")) {
                     message.setPhoneNumber(lines[i + 1].trim());
                 }
                 if (lines[i].contains("Contact preference")) {
-                    details += "Contact Preference: "+ lines[i + 1].trim() + '\n';
+                    details += "Contact Preference: " + lines[i + 1].trim() + '\n';
                 }
                 if (lines[i].contains("Email address")) {
-                    String email = lines[i + 1].split("<")[0].trim();
+                    String email = lines[i + 1].split("<")[0].split(" ")[0].trim();
                     message.setEmail(email);
                 }
                 if (lines[i].contains("Registration")) {
-                    details += "Registration: "+ lines[i + 1].trim() + '\n';
+                    details += "Registration: " + lines[i + 1].trim() + '\n';
                 }
                 if (lines[i].contains("Vehicle details") && !lines[i + 1].contains("Registration")) {
-                    details += "Vehicle: "+ lines[i + 1].trim() + '\n';
+                    details += "Vehicle: " + lines[i + 1].trim() + '\n';
                 }
             }
             message.setDetails(details);
@@ -186,12 +250,12 @@ public class MailMonitor {
                 }
 
                 if (line.contains("Client phone number:")) {
-                    String phone = line.replace("Client phone number:","").trim();
+                    String phone = line.replace("Client phone number:", "").trim();
                     message.setPhoneNumber(phone);
                 }
 
                 if (line.contains("Client email address:")) {
-                    String email = line.replace("Client email address:","").split("<")[0].trim();
+                    String email = line.replace("Client email address:", "").split("<")[0].trim();
                     message.setEmail(email);
                 }
 
@@ -237,6 +301,7 @@ public class MailMonitor {
             message.setDetails(details);
 
         }
+
     }
 
 }

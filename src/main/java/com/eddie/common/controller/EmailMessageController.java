@@ -1,6 +1,7 @@
 package com.eddie.common.controller;
 
 import com.eddie.common.service.MailMonitor;
+import com.eddie.dao.ContactDao;
 import com.eddie.dao.EmailMessageDao;
 import com.eddie.dao.EventDao;
 import com.eddie.domain.EmailMessage;
@@ -26,13 +27,16 @@ public class EmailMessageController {
     @Autowired
     private EmailMessageDao emailMessageDao;
 
+    @Autowired
+    private ContactDao contactDao;
+
 
     @RequestMapping(value = "/run", method = RequestMethod.GET)
     public
     @ResponseBody
     void run() {
-        MailMonitor mailMonitor = new MailMonitor();
-        mailMonitor.runMe(emailMessageDao);
+        MailMonitor mailMonitor = new MailMonitor(emailMessageDao, contactDao);
+        mailMonitor.runMe();
     }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)

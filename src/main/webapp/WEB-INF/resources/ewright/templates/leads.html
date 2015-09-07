@@ -1,0 +1,83 @@
+<div style="padding: 0px 5px 5px;">
+
+    <div class="page-header" style="margin-top: 0px">
+        <h1> <i class="fa  fa-arrow-right"></i> Inbound Enquiries
+            <small>- Email, live chat and phone calls.</small>
+        </h1>
+    </div>
+
+
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="lead in model.leads">
+            <div style="display : block; width : 100%; overflow : auto;">
+                <div style="float : left; clear : none; width : 5%; margin-top: 8px">
+
+                        <label class="col-sm-2 control-label pull-left"> #{{lead.id}}</label>
+                </div>
+                <div style="float : left; clear : none; width : 70%;">
+
+                    <div style="display : block; width : 100%; overflow : hidden;" class="form-horizontal">
+                        <div style="float : left; clear : none; width : 33%;">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Name</label>
+
+                                <div class="col-sm-10">
+                                    <p class="form-control-static ">{{lead.name}}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div style="float : left; clear : none; width : 33%;">
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Email</label>
+                                <div class="col-sm-10">
+                                    <p class="form-control-static ">{{lead.email}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="float : left; clear : none; width : 33%;">
+
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label">PhoneNumber</label>
+                                <div class="col-sm-6">
+                                    <p class="form-control-static">{{lead.phoneNumber}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div style="float : left; clear : none; width : 25%;" class="">
+                    <button class="btn btn-default pull-right" type="submit">Action</button>
+                    <button class="btn btn-success pull-right" type="submit" ng-click="lead.showContact = !lead.showContact">
+                        <i
+                            class="fa fa-plus"> Add Contact</i></button>
+                    <button class="btn btn-default pull-right" type="submit" ng-click="lead.showDetails = !lead.showDetails">
+                        {{
+                        (lead.showDetails) ?  "Hide Details" : "Show Details"
+                        }}
+                    </button>
+                </div>
+
+
+            </div>
+            <div ng-show="lead.showDetails">
+                <textarea class="form-control" ng-model="lead.details" rows="8" readonly></textarea>
+            </div>
+
+            <div ng-show="lead.showContact">
+                <button class="btn btn-success" type="button" ng-click="open(true)"></button>
+                <!--<textarea class="form-control" ng-model="lead.assignedContact.firstName" rows="8" readonly></textarea>-->
+            </div>
+
+
+        </li>
+
+    </ul>
+
+
+</div>
