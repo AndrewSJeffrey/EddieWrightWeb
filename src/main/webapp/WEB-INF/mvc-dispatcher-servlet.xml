@@ -25,7 +25,11 @@
         </property>
     </bean>
 
+
     <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"
+                   cache-period="31556926"/>
+
+    <mvc:resources mapping="/emails/**" location="/WEB-INF/emails/"
                    cache-period="31556926"/>
 
     <context:property-placeholder location='/WEB-INF/application.properties' ignore-unresolvable='false'/>

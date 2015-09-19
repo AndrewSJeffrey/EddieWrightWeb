@@ -1,0 +1,24 @@
+<div>
+    <div class="modal-body">
+
+
+        <div>
+
+        </div>
+
+        <label class="form-control">#{{lead.id}}</label>
+        <label class="form-control">Subject:{{lead.subject}}</label>
+        <label class="form-control">{{lead.receivedDate | date:'medium'}}</label>
+
+        <iframe ng-if="url != null" class="form-group" style="width: 100%; height: 500px" src="{{url}}"></iframe>
+        <label ng-if="url == null" class="form-control">Loading Email body</label>
+
+
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-default" ng-click="cancel()">Close</button>
+    </div>
+
+
+</div>

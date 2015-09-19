@@ -9,6 +9,12 @@ angular.module('eWrightServices').service('LeadsService', ['DAOAbstract', 'AppMo
         });
     }
 
+    function getEmailUrl(messageId, callback) {
+        dao.query("/find?messageId=" + messageId, function (result) {
+            callback(result.data)
+        });
+    }
+
 
     function getAllLeads(callback) {
         dao.query("/all", function (result) {
@@ -54,7 +60,7 @@ angular.module('eWrightServices').service('LeadsService', ['DAOAbstract', 'AppMo
             id: contact.id ? contact.id : 0,
             firstName: contact.firstName ? contact.firstName : "",
             surname: contact.surname ? contact.surname : "",
-          companyName: contact.companyName ? contact.companyName : "",
+            companyName: contact.companyName ? contact.companyName : "",
             addressLine1: contact.addressLine1 ? contact.addressLine1 : "",
             addressLine2: contact.addressLine2 ? contact.addressLine2 : "",
             addressLine3: contact.addressLine3 ? contact.addressLine3 : "",
@@ -68,10 +74,7 @@ angular.module('eWrightServices').service('LeadsService', ['DAOAbstract', 'AppMo
             createdBy: contact.createdBy ? contact.createdBy : AppModel.getLoggedInUser(),
             createdOn: contact.createdOn ? new Date(contact.createdOn) : new Date(),
             modifiedOn: contact.modifiedOn ? new Date(contact.modifiedOn) : new Date(),
-           // modifiedBy: contact.modifiedBy ? contact.modifiedBy : AppModel.getLoggedInUser()
-
-
-
+            // modifiedBy: contact.modifiedBy ? contact.modifiedBy : AppModel.getLoggedInUser()
 
         };
         console.log(object);
@@ -84,6 +87,7 @@ angular.module('eWrightServices').service('LeadsService', ['DAOAbstract', 'AppMo
         createLead: createLead,
         updateLead: updateLead,
         deleteLead: deleteLead,
-        restoreLead: restoreLead
+        restoreLead: restoreLead,
+        getEmailUrl: getEmailUrl
     })
 }]);

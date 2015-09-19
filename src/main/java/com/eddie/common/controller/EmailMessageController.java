@@ -4,16 +4,14 @@ import com.eddie.common.service.MailMonitor;
 import com.eddie.dao.ContactDao;
 import com.eddie.dao.EmailMessageDao;
 import com.eddie.dao.EventDao;
+import com.eddie.domain.EmailDetails;
 import com.eddie.domain.EmailMessage;
 import com.eddie.domain.Event;
 import org.apache.commons.mail.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -37,6 +35,16 @@ public class EmailMessageController {
     void run() {
         MailMonitor mailMonitor = new MailMonitor(emailMessageDao, contactDao);
         mailMonitor.runMe();
+    }
+
+    @RequestMapping(value = "/find", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    EmailDetails find(@RequestParam(value = "messageId") int messageId) {
+        System.out.println("try locate message?");
+        MailMonitor mailMonitor = new MailMonitor(emailMessageDao, contactDao);
+        EmailDetails message = mailMonitor.getMessage(messageId);
+        return message;
     }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
