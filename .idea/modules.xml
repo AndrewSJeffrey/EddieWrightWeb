@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EddieWright.iml" filepath="$PROJECT_DIR$/EddieWright.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../workspace/RoadSpeed/RoadSpeed.iml" filepath="$PROJECT_DIR$/../../workspace/RoadSpeed/RoadSpeed.iml" />
+      <module fileurl="file://$USER_HOME$/Downloads/Spring3MVC 4/SpringMVC.iml" filepath="$USER_HOME$/Downloads/Spring3MVC 4/SpringMVC.iml" />
       <module fileurl="file://$PROJECT_DIR$/../EddieWrightCore/ew-core.iml" filepath="$PROJECT_DIR$/../EddieWrightCore/ew-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../roadspeed-REST/roadspeed-rest.iml" filepath="$PROJECT_DIR$/../roadspeed-REST/roadspeed-rest.iml" />
     </modules>
   </component>
 </project>

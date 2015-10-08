@@ -6,8 +6,8 @@ angular.module('eWrightDirectives').directive('contactContainer', function () {
             searchText: '',
             letters : ['-', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
             selectedLetter : 'A'
-
         };
+
 
         function model() {
             return $scope.model;
@@ -24,9 +24,13 @@ angular.module('eWrightDirectives').directive('contactContainer', function () {
 
         function refresh(id) {
             console.log("load data contacts:" + id);
-            ContactService.searchContactsFirstName(model().selectedLetter, handleDataLoad);
+            $scope.search();
 
         }
+
+        $scope.getContacts = function() {
+            return model().contacts;
+        };
 
 
         //refresh();
@@ -69,10 +73,22 @@ angular.module('eWrightDirectives').directive('contactContainer', function () {
         };
 
         $scope.search = function() {
-            console.log(model().searchText);
-            ContactService.searchContacts(model().searchText, handleDataLoad);
-        }
 
+
+            console.log(model().searchText);
+
+            if (model().searchText.length > 2) {
+            ContactService.searchContacts(model().searchText, handleDataLoad);
+                } else {
+                console.log("Search is too generic!!")
+            }
+
+        };
+
+
+        $scope.setContact = function (contact) {
+            $scope.text = contact;
+        }
 
 
 
@@ -80,7 +96,11 @@ angular.module('eWrightDirectives').directive('contactContainer', function () {
 
     return {
         restrict: 'E',
-        scope: {},
+        scope: {
+            text : "=text",
+            enquire : "@enquire"
+
+        },
         controller: controller,
         templateUrl: '/resources/ewright/templates/contactContainer.html',
         link: function (scope, elem, attrs) {

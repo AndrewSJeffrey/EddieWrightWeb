@@ -1,15 +1,11 @@
 <div>
-    <form class="form-horizontal" role="form" name="form" novalidate>
-        <div class="modal-header">
-            <h3 class="modal-title" ng-show="model.newuser">New Contact</h3>
 
-            <h3 class="modal-title" ng-hide="model.newuser">Edit Contact</h3>
-        </div>
+    <form class="form-horizontal" role="form" name="form" novalidate>
         <div class="modal-body">
 
 
             <fieldset>
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal" role="form" disabled>
                     <fieldset>
 
                         <legend>Customer Details</legend>
@@ -24,7 +20,7 @@
                             <label class="col-sm-2 control-label" for="textinput">Surname</label>
 
                             <div class="col-sm-4">
-                                <input type="text" placeholder="Surname" class="form-control" ng-model="contact.surname">
+                                <input type="text" placeholder="Surname" class="form-control" ng-model="contact.surname" >
                             </div>
                         </div>
 
@@ -140,4 +136,6 @@
             </div>
         </div>
     </form>
+
+
 </div>

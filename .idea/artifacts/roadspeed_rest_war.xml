@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="roadspeed-rest:war">
+    <output-path>$PROJECT_DIR$/../roadspeed-REST/target</output-path>
+    <root id="archive" name="roadspeed-REST.war">
+      <element id="artifact" artifact-name="roadspeed-rest:war exploded" />
+    </root>
+  </artifact>
+</component>

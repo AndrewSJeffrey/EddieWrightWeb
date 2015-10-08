@@ -24,11 +24,19 @@
         <processorPath useClasspath="true" />
         <module name="EddieWright" />
         <module name="ew-core" />
+        <module name="RoadSpeed" />
+        <module name="roadspeed-rest" />
+        <module name="RomanNumeral" />
+        <module name="SpringMVC" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="EddieWright" target="1.6" />
       <module name="ew-core" target="1.6" />
+      <module name="RoadSpeed" target="1.6" />
+      <module name="roadspeed-rest" target="1.6" />
+      <module name="romannumeral-rest" target="1.6" />
+      <module name="SpringMVC" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -512,8 +512,12 @@ public class MailMonitor {
         }
         String abbreviate = StringUtils.abbreviate(message.getDetails(), 10000);
         String phone = StringUtils.abbreviate(message.getPhoneNumber(), 12);
+        String email = StringUtils.abbreviate(message.getEmail(), 250);
+        String name = StringUtils.abbreviate(message.getName(), 250);
         message.setDetails(abbreviate);
         message.setPhoneNumber(phone);
+        message.setEmail(email);
+        message.setName(name);
     }
 
     public static void cleanHtml(String filename) {

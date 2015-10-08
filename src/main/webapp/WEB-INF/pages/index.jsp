@@ -22,6 +22,11 @@
     <script src="${pageContext.request.contextPath}/resources/js/angular-bootstrap-calender.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/angular-bootstrap-calender-tpls.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/datetimepicker.js"></script>
+
+    <script src="${pageContext.request.contextPath}/resources/js/core.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/scalyr.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/slyEvaluate.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/slyRepeat.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
@@ -64,8 +69,10 @@
 <script src="${pageContext.request.contextPath}/resources/ewright/js/directives/users.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/directives/username.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/directives/opportunityList.js"></script>
+<script src="${pageContext.request.contextPath}/resources/ewright/js/directives/contact.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/directives/contacts.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/directives/leads.js"></script>
+<script src="${pageContext.request.contextPath}/resources/ewright/js/directives/actions.js"></script>
 
 
 </html>

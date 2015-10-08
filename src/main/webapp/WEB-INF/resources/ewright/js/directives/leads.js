@@ -1,13 +1,18 @@
 angular.module('eWrightDirectives').directive('leads', function () {
 
 
-    var controller = ['$scope', 'LeadsService', 'blockUI', 'AppModel', '$modal', 'ToasterService' ,'MenuService', function ($scope, LeadsService, blockUI, AppModel, $modal, ToasterService, MenuService) {
+    var controller = ['$scope', 'LeadsService', 'blockUI', 'AppModel', '$modal', 'ToasterService', 'MenuService', function ($scope, LeadsService, blockUI, AppModel, $modal, ToasterService, MenuService) {
 
         $scope.model = {
             leads: [],
+            filteredList : [],
             url: "http://localhost:8080/emails/87.html",
             leadsByContact: {},
-            selectedMessage : null
+            selectedMessage: {
+                actionShow: false,
+                showDetails: true
+            },
+            searchText : ""
         };
 
         function model() {
@@ -19,8 +24,11 @@ angular.module('eWrightDirectives').directive('leads', function () {
             model().leads = data;
             model().leadsByContact = {};
 
-            for(var row in data) {
+            for (var row in data) {
+
+                data[row].showAction = false;
                 var contact = data[row].assignedContact;
+
                 if (contact) {
                     if (!model().leadsByContact[contact.id]) {
                         model().leadsByContact[contact.id] = []
@@ -36,14 +44,77 @@ angular.module('eWrightDirectives').directive('leads', function () {
             }
 
             MenuService.getLeadsMenu().count = model().leads.length;
+            model().filteredList = model().leads;
 
         }
 
-        $scope.getLeadsByContact = function(searchTerms) {
+
+        $scope.showAction = function(lead) {
+            lead.showAction = true;
+
+        };
+
+        $scope.getLeadsByContact = function (searchTerms) {
 
 
             return model().leadsByContact;
         };
+
+
+
+        $scope.filter = function() {
+            var filteredList = [];
+
+            var search = model().searchText ? model().searchText : "";
+
+            for (var id in model().leads) {
+
+                var lead = model().leads[id];
+
+                if (lead.name != null && lead.name.toUpperCase().indexOf(search.toUpperCase())  > -1) {
+                    filteredList.push(lead);
+                }
+                else if (lead.email != null && lead.email.toUpperCase().indexOf(search.toUpperCase())  > -1) {
+                    filteredList.push(lead);
+                }
+                else if (lead.phoneNumber != null && lead.phoneNumber.toUpperCase().indexOf(search.toUpperCase())  > -1) {
+                    filteredList.push(lead);
+                }
+
+
+
+            }
+            model().filteredList = filteredList;
+        };
+
+        $scope.getLeads = function() {
+            return model().filteredList;
+        };
+
+        var lastClicked = "";
+
+        $scope.filterBy = function (TYPE) {
+            model().filteredList = model().filteredList.sort(byProperty(TYPE));
+            if (TYPE == lastClicked) {
+                model().filteredList = model().filteredList.reverse();
+                lastClicked = "";
+            } else {
+                lastClicked = TYPE;
+            }
+        };
+
+        var byProperty = function(prop) {
+            return function(a,b) {
+                if (typeof a[prop] == "number") {
+                    return (a[prop] - b[prop]);
+                } else {
+                    return ((a[prop] < b[prop]) ? -1 : ((a[prop] > b[prop]) ? 1 : 0));
+                }
+            };
+        };
+
+
+
 
         LeadsService.getUnprocessedLeads(processData);
 
@@ -58,13 +129,14 @@ angular.module('eWrightDirectives').directive('leads', function () {
                     model: function () {
                         var model = {
                             lead: lead,
-                            LeadsService : LeadsService
+                            LeadsService: LeadsService
                         };
                         return model;
                     }
                 }
             });
-        }}];
+        }
+    }];
 
 
     return {
@@ -82,7 +154,6 @@ angular.module('eWrightDirectives').directive('leads', function () {
 });
 
 
-
 angular.module('eWrightControllers').controller('EmailViewer', function ($scope, $modalInstance, model) {
     $scope.model = model;
     $scope.lead = model.lead;
@@ -93,15 +164,13 @@ angular.module('eWrightControllers').controller('EmailViewer', function ($scope,
         $modalInstance.dismiss('cancel');
     };
 
-    function handleUrl(data){
-        $scope.url =  location.protocol + '//' + location.host + "/" + data.url;
+    function handleUrl(data) {
+        $scope.url = location.protocol + '//' + location.host + "/" + data.url;
     }
 
 
-
-
     function closeDialog(postClose) {
-        return function() {
+        return function () {
             $modalInstance.dismiss("closing");
         }
     }

@@ -32,6 +32,8 @@
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
+    <file type="web" url="file://$PROJECT_DIR$/../roadspeed-REST" />
+    <file type="web" url="file://$USER_HOME$/Downloads/Spring3MVC 4" />
   </component>
   <component name="IdProvider" IDEtalkID="92971285D3303EBD7E3BA2E43625D59A" />
   <component name="MavenProjectsManager">
@@ -39,6 +41,10 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../EddieWrightCore/pom.xml" />
+        <option value="$PROJECT_DIR$/../RomanNumeral/pom.xml" />
+        <option value="$USER_HOME$/Downloads/Spring3MVC 4/pom.xml" />
+        <option value="$PROJECT_DIR$/../../workspace/RoadSpeed/pom.xml" />
+        <option value="$PROJECT_DIR$/../roadspeed-REST/pom.xml" />
       </list>
     </option>
   </component>

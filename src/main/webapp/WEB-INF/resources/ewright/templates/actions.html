@@ -1,0 +1,98 @@
+<div class="form-horizontal">
+
+    <div ng-if="model.showNewAction" style="margin-top: 0px">
+        <form  role="form" name="form" novalidate>
+            <fieldset>
+                <h3>Create Task</h3>
+
+                <div class="form-group">
+                    <div class="col-sm-1"><label>Task Type</label></div>
+                    <div class="col-sm-11">
+                        <select class="form-control" ng-model="model.selectedType">
+                            <option value="{{action.type}}" ng-repeat="action in model.actions">{{action.text}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <span ng-if="model.selectedType != 'DISCARD'">
+
+                      <div class="form-group">
+                          <div class="col-sm-1"><label>Start</label></div>
+                          <div class="col-sm-11">
+                              <div class="dropdown">
+                                  <a class="dropdown-toggle my-toggle-select" id="dLabel" role="button"
+                                     data-toggle="dropdown" data-target="#" href="">
+                                      <div class="input-append">
+                                          <input name="startAt" type="datetime" class="form-control"
+                                                 data-ng-model="event.startsAt" required ng-disabled="event.removed">
+                                      </div>
+                                  </a>
+                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                      <datetimepicker data-ng-model="event.startsAt"
+                                                      data-datetimepicker-config="{ dropdownSelector: '.my-toggle-select' }"></datetimepicker>
+                                  </ul>
+                              </div>
+                                             <span style="color:red" ng-show="form.startAt.$dirty && form.startAt.$invalid">
+                                            <span ng-show="form.startAt.$error.required">Start date is required.</span>
+                                                 </span>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="col-sm-1"><label>Reason</label></div>
+                          <div class="col-sm-11">
+                              <input class="form-control" placeholder="Reason">
+                          </div>
+                      </div>
+                      <div class="form-group">
+
+                          <div class="col-sm-1"><label>Notes</label></div>
+                          <div class="col-sm-11">
+                              <textarea class="form-control" placeholder="Notes" rows="3"/>
+                          </div>
+                      </div>
+
+
+                    <!-- <div ng-if="model.selectedType == 'APT_OS'">
+                         <div ng-if="model.selectedType == 'APT_SC'">-->
+
+                      <div class="form-group">
+                          <div class="col-sm-1"><label>Assign To</label></div>
+                          <div class="col-sm-11">
+                              <div ng-if="model.selectedType == 'APT_OS'">
+                                  <input class="form-control" placeholder="Online Sales" disabled>
+                              </div>
+                              <div ng-if="model.selectedType == 'APT_SC'">
+                                  <input class="form-control" placeholder="Sales Controller" disabled>
+                              </div>
+                              <div ng-if="model.selectedType == 'EMAIL' || model.selectedType == 'PHONE' ">
+                                  <input class="form-control" placeholder="Email or call" disabled>
+                              </div>
+
+                          </div>
+                      </div>
+
+                </span>
+
+
+                <div ng-if="model.selectedType == 'DISCARD'">
+                    Discard message
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <button class="btn btn-default pull-right" ng-click="showNextNewPage()">Next</button>
+                    </div>
+
+                    </div>
+            </fieldset>
+
+        </form>
+
+
+    </div>
+
+
+    <div ng-if="!model.showNewAction">
+        SHOW CURRENT ACTION
+    </div>
+
+</div>
