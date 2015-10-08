@@ -5,7 +5,7 @@ angular.module('eWrightControllers').controller('MenuController', ['$scope', 'Ap
     };
 
     $scope.getPageStyle = function () {
-        var bgColor = AppModel.isLoggedIn() ? 'rgba(37, 44, 249, 0.14)' : '#E8D1FF';
+        var bgColor = AppModel.isLoggedIn() ? 'rgba(0, 0, 0, 0.68)' : 'rgba(78, 71, 84, 1)';
         var style = {
             height: "100%",
             width: '100%',

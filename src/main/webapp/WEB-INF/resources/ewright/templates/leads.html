@@ -3,15 +3,15 @@
     <div ng-if="model.selectedMessage.id">
 
 
-        <div style=" min-height: 40px" >
-        <button class="btn btn-default" style="float: left;"
-                ng-click="model.selectedMessage = null">
-            <i class="fa fa-arrow-circle-left"></i>
-        </button>
-        <button class="btn  btn-default" style="float: right;"
-                ng-click="open(model.selectedMessage);$event.stopPropagation()">
-            <i class="fa fa-envelope-o"></i>
-        </button>
+        <div style=" min-height: 40px">
+            <button class="btn btn-default" style="float: left;"
+                    ng-click="model.selectedMessage = null">
+                <i class="fa fa-arrow-circle-left"></i>
+            </button>
+            <button class="btn  btn-default" style="float: right;"
+                    ng-click="open(model.selectedMessage);$event.stopPropagation()">
+                <i class="fa fa-envelope-o"></i>
+            </button>
         </div>
 
 
@@ -58,9 +58,9 @@
 
     </div>
 
-    <div class="ewframe">
+    <div class="ewframe" ng-if="!model.selectedMessage.id">
         <input class="form-control" placeholder="Search..." ng-model="model.searchText" ng-keyup="filter()">
-        <table class="table table-condensed table-hover " ng-if="!model.selectedMessage.id">
+        <table class="table table-condensed table-hover">
             <thead>
             <tr>
                 <th ng-click="filterBy('id')" style="cursor: hand">Ref.</th>
@@ -90,6 +90,11 @@
             </tbody>
 
         </table>
+        <div ng-if="getLeads().length == 0">
+            <h3>No enquires found matching search criteria:
+                <font color="red">{{model.searchText}}</font>
+            </h3>
+        </div>
     </div>
 
 </div>
