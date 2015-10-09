@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f60ded23-a7f1-48b5-80e2-89713bf01051" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/leads.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/leads.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/leads.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/leads.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EddieWright.iws" />
@@ -44,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leads.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="leads.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/leads.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.2794561" vertical-offset="563" max-vertical-offset="1575">
-              <caret line="94" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="99" selection-end-column="6" />
+            <state vertical-scroll-proportion="-29.041666" vertical-offset="548" max-vertical-offset="1560">
+              <caret line="83" column="68" selection-start-line="83" selection-start-column="68" selection-end-line="83" selection-end-column="68" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -64,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leads.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="leads.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/leads.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.230769" vertical-offset="1662" max-vertical-offset="2775">
-              <caret line="132" column="26" selection-start-line="132" selection-start-column="26" selection-end-line="132" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.9207921" vertical-offset="885" max-vertical-offset="2850">
+              <caret line="121" column="12" selection-start-line="121" selection-start-column="12" selection-end-line="121" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -202,9 +204,9 @@
         <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/OpportunityDaoImpl.java" />
         <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/EmailMessageDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/eddie/common/service/MailMonitor.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/leads.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/controllers/menu-controller.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/leads.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/leads.js" />
       </list>
     </option>
   </component>
@@ -265,7 +267,7 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="25" />
+    <option name="x" value="-1895" />
     <option name="y" value="35" />
     <option name="width" value="1867" />
     <option name="height" value="1156" />
@@ -1047,7 +1049,7 @@
       <workItem from="1444128698151" duration="493000" />
       <workItem from="1444129240828" duration="10134000" />
       <workItem from="1444290527682" duration="4013000" />
-      <workItem from="1444317208181" duration="8194000" />
+      <workItem from="1444317208181" duration="8628000" />
     </task>
     <task id="LOCAL-00001" summary="Seperated out beans">
       <created>1434917818276</created>
@@ -1199,15 +1201,21 @@
       <option name="project" value="LOCAL" />
       <updated>1444342802337</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Added error feedback when lead search is invalid, displays faulty search term in red text.">
+      <created>1444344066735</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1444344066735</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="361671000" />
+    <option name="totallyTimeSpent" value="362105000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="25" y="35" width="1867" height="1156" extended-state="0" />
-    <editor active="false" />
+    <frame x="-1895" y="35" width="1867" height="1156" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1228,7 +1236,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34774438" sideWeight="0.8860478" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32894737" sideWeight="0.49893504" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.49893504" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24986301" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1680,14 +1688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/leads.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.230769" vertical-offset="1662" max-vertical-offset="2775">
-          <caret line="132" column="26" selection-start-line="132" selection-start-column="26" selection-end-line="132" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.5" vertical-offset="228" max-vertical-offset="1320">
@@ -1706,8 +1706,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/leads.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2794561" vertical-offset="563" max-vertical-offset="1575">
-          <caret line="94" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="99" selection-end-column="6" />
+        <state vertical-scroll-proportion="-29.041666" vertical-offset="548" max-vertical-offset="1560">
+          <caret line="83" column="68" selection-start-line="83" selection-start-column="68" selection-end-line="83" selection-end-column="68" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -1719,6 +1719,14 @@
             <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/leads.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9207921" vertical-offset="885" max-vertical-offset="2850">
+          <caret line="121" column="12" selection-start-line="121" selection-start-column="12" selection-end-line="121" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>

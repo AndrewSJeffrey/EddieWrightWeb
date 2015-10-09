@@ -1,7 +1,8 @@
 angular.module('eWrightDirectives').directive('leads', function () {
 
 
-    var controller = ['$scope', 'LeadsService', 'blockUI', 'AppModel', '$modal', 'ToasterService', 'MenuService', function ($scope, LeadsService, blockUI, AppModel, $modal, ToasterService, MenuService) {
+    var controller = ['$scope', 'LeadsService', 'blockUI', 'AppModel', '$modal', 'ToasterService', 'MenuService','$window',
+        function ($scope, LeadsService, blockUI, AppModel, $modal, ToasterService, MenuService, $window) {
 
         $scope.model = {
             leads: [],
@@ -113,8 +114,12 @@ angular.module('eWrightDirectives').directive('leads', function () {
             };
         };
 
+        $scope.selectLead = function(lead) {
+            model().selectedMessage = lead;
+            $window.scrollTo(0,0);
+        };
 
-
+            
 
         LeadsService.getUnprocessedLeads(processData);
 
