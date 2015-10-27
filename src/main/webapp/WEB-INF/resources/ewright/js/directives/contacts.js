@@ -14,7 +14,6 @@ angular.module('eWrightDirectives').directive('contactContainer', function () {
         }
 
         function handleDataLoad(data) {
-            console.log(data);
             model().contacts = data;
         }
 
@@ -23,9 +22,7 @@ angular.module('eWrightDirectives').directive('contactContainer', function () {
         }
 
         function refresh(id) {
-            console.log("load data contacts:" + id);
             $scope.search();
-
         }
 
         $scope.getContacts = function() {
@@ -73,23 +70,16 @@ angular.module('eWrightDirectives').directive('contactContainer', function () {
         };
 
         $scope.search = function() {
-
-
-            console.log(model().searchText);
-
             if (model().searchText.length > 2) {
             ContactService.searchContacts(model().searchText, handleDataLoad);
                 } else {
                 console.log("Search is too generic!!")
             }
-
         };
-
 
         $scope.setContact = function (contact) {
             $scope.text = contact;
         }
-
 
 
     }];
@@ -149,7 +139,6 @@ angular.module('eWrightControllers').controller('ContactInstanceCtrl', [ '$scope
            ToasterService.createToast(ToasterService.PRIORITY.SUCCESS, "Customer " + contact.firstName + " " + contact.surname + " has been updated.");
             blockUI.stop();
         }, contact.id));
-        console.log(contact.id)
     };
 
     $scope.create = function () {

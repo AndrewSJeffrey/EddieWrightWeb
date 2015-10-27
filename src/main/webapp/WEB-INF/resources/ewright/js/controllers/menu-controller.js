@@ -14,6 +14,7 @@ angular.module('eWrightControllers').controller('MenuController', ['$scope', 'Ap
         return style;
     };
     $scope.mainMenu = MenuService.mainMenu;
+    $scope.logout = MenuService.getLogoutMenuItem();
     $scope.getSelectedMenuItem = MenuService.getSelectedMenuItem;
 }]);
 
@@ -105,9 +106,9 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
            // opportunitiesMenuItem,
          //   stockMenuItem,
             contactsMenuItem,
-         //   plannerMenuItem,
+            plannerMenuItem,
             accountSettings,
-            logoutMenuItem
+           // logoutMenuItem
         ];
 
 
@@ -182,12 +183,16 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
             return leadssMenuItem;
         }
 
+        function getLogoutMenuItem() {
+            return logoutMenuItem;
+        }
 
 
         return ({
             mainMenu: mainMenu,
             getSelectedMenuItem: getSelectedMenuItem,
-            getLeadsMenu : getLeadsMenu
+            getLeadsMenu : getLeadsMenu,
+            getLogoutMenuItem : getLogoutMenuItem
         });
     }]
 );

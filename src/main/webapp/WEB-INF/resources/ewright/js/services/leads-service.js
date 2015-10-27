@@ -39,6 +39,14 @@ angular.module('eWrightServices').service('LeadsService', ['DAOAbstract', 'AppMo
         });
     }
 
+    function discardLead(id, reason, userId, callback) {
+        dao.query("/discard?id=" + id + "&reason=" + reason + "&userId=" + userId,function () {
+            if (callback instanceof Function) {
+                callback();
+            }
+        });
+    }
+
     function deleteLead(event, callback) {
         dao.postURL("/delete", repack(event), function () {
             if (callback instanceof Function) {
@@ -88,6 +96,7 @@ angular.module('eWrightServices').service('LeadsService', ['DAOAbstract', 'AppMo
         updateLead: updateLead,
         deleteLead: deleteLead,
         restoreLead: restoreLead,
-        getEmailUrl: getEmailUrl
+        getEmailUrl: getEmailUrl,
+        discardLead: discardLead
     })
 }]);

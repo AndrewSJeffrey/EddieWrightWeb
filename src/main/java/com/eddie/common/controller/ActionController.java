@@ -2,8 +2,14 @@ package com.eddie.common.controller;
 
 import com.eddie.dao.ActionDao;
 import com.eddie.dao.ContactDao;
+import com.eddie.dao.EmailMessageDao;
+import com.eddie.dao.UserDao;
 import com.eddie.domain.Action;
 import com.eddie.domain.Contact;
+import com.eddie.domain.EmailMessage;
+import com.eddie.domain.User;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,11 +26,19 @@ public class ActionController {
     @Autowired
     private ActionDao actionDao;
 
+    @Autowired
+    private ContactDao contactDao;
+
+    @Autowired
+    private UserDao userDao;
+
+    @Autowired
+    private EmailMessageDao emailMessageDao;
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     public
     @ResponseBody
     List<Action> getActions() {
-
         try {
             List<Action> actions = actionDao.list();
             return actions;
@@ -35,20 +49,71 @@ public class ActionController {
     }
 
 
-/*
     @ResponseBody
-    @RequestMapping(value = "/update", method = {RequestMethod.POST})
-    public Contact update(@RequestBody final Contact contact) {
-        final Date dateNow = new Date();
-        contact.setModifiedOn(dateNow);
-        contact.setModifiedBy(contact.getCreatedBy());
+    @RequestMapping(value = "/new", method = {RequestMethod.POST})
+    public Action newAction(@RequestBody final Action action) {
+
+
+        //todo set assigned too and from
+
         try {
-            contactDao.save(contact);
-        }catch (Exception e) {
+
+            final Date dateNow = new Date();
+            User user = userDao.load(action.getCreatedBy());
+            action.setCreatedOn(dateNow);
+
+            if (action.getContactId() != null) {
+                Contact load = contactDao.load(action.getContactId());
+                Action currentAction = load.getCurrentAction();
+
+                if (currentAction != null) {
+                    currentAction.setOutcome(action.getOutcome());
+
+                    action.setOutcome(null);
+                    action.setPreviousAction(currentAction.getId());
+
+                    actionDao.save(action);
+                    currentAction.setNextAction(action.getId());
+                    actionDao.save(currentAction);
+
+
+                    load.setCurrentAction(action);
+                    contactDao.save(load);
+
+                    if (action.getMessageId() != null) {
+                        EmailMessage emailMessage = emailMessageDao.load(action.getMessageId());
+                        emailMessage.setProcessed(true);
+                        emailMessage.setProcessedDate(new Date());
+                        emailMessage.setAssignedContact(load);
+                        emailMessage.setProcessedBy(user.getId());
+                        emailMessageDao.save(emailMessage);
+                    }
+
+                } else {
+                    actionDao.save(action);
+                    load.setCurrentAction(action);
+                    contactDao.save(load);
+
+                    if (action.getMessageId() != null) {
+                        EmailMessage emailMessage = emailMessageDao.load(action.getMessageId());
+                        emailMessage.setProcessed(true);
+                        emailMessage.setProcessedDate(new Date());
+                        emailMessage.setAssignedContact(load);
+                        emailMessage.setProcessedBy(user.getId());
+                        emailMessageDao.save(emailMessage);
+                    }
+
+                }
+            }
+
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return contact;
+        return action;
     }
+
+/*
 
     @ResponseBody
     @RequestMapping(value = "/delete", method = {RequestMethod.POST})

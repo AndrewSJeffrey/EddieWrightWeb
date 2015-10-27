@@ -53,6 +53,7 @@
 <script src="${pageContext.request.contextPath}/resources/ewright/js/services/dao/websocket-abstract.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/services/toaster-service.js"></script>
 
+<script src="${pageContext.request.contextPath}/resources/ewright/js/services/action-service.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/services/login-service.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/services/user-service.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/services/event-service.js"></script>

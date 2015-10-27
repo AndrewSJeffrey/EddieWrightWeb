@@ -1,6 +1,6 @@
 <div style="padding: 0px 5px 5px;">
 
-    <div ng-if="model.selectedMessage.id " autoscroll="true">
+    <div ng-if="model.selectedMessage.id " autoscroll="true" ng-init="showDelete = false; model.selectedMessage.reason = ''">
 
 
         <div style=" min-height: 40px">
@@ -8,16 +8,57 @@
                     ng-click="model.selectedMessage = null">
                 <i class="fa fa-arrow-circle-left"></i>
             </button>
-            <button class="btn  btn-default" style="float: right;"
-                    ng-click="open(model.selectedMessage);$event.stopPropagation()">
+
+            <button class="btn  btn-danger" style="float: right; margin-left: 3px "
+                    ng-click="showDelete = !showDelete; $event.stopPropagation()">
+                <i class="fa fa-trash-o"></i>
+            </button>
+
+            <button class="btn  btn-default" style="float: right; margin-left: 3px"
+                    ng-click="open(model.selectedMessage); $event.stopPropagation()">
                 <i class="fa fa-envelope-o"></i>
             </button>
         </div>
 
+        <div class="ewframe" ng-if="showDelete">
+            <h3 class="ewheader">Discard Message</h3>
+
+            <div class="row">
+
+
+                <div class="form-group">
+
+                    <div class="col-sm-1"><label>Reason</label></div>
+
+                    <div class="col-sm-11">
+                        <textarea class="form-control" placeholder="Reason" rows="3"
+                                  ng-model="model.selectedMessage.reason"/>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 80px">
+                    <label class="col-sm-10 control-label">Are you sure you want to discard this message?</label>
+
+                    <div class="col-sm-2">
+
+                        <button class="btn  btn-default" style="float: right; margin-left: 3px"
+                                ng-click="$parent.showDelete = false; $event.stopPropagation()">
+                            No
+                        </button>
+
+                        <button class="btn  btn-danger" style="float: right; margin-left: 3px"
+                                ng-click="discard(model.selectedMessage); $event.stopPropagation()"
+                                ng-disabled="!model.selectedMessage.reason || model.selectedMessage.reason.length < 15">
+                            Yes
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
         <div class="ewframe">
             <h3 class="ewheader">Enquiry</h3>
-
 
             <div class="row">
 
@@ -50,9 +91,9 @@
             <contact-container text="model.selectedMessage.assignedContact" enquire="1"></contact-container>
         </div>
 
-        <div class="ewframe">
+        <div class="ewframe" ng-if="model.selectedMessage && model.selectedMessage.assignedContact">
             <h3 class="ewheader">Action</h3>
-            <action lead="model.selectedMessage"></action>
+            <action lead="model.selectedMessage" hide="hide()"></action>
         </div>
 
     </div>

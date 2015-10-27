@@ -21,6 +21,12 @@ angular.module('eWrightServices').service('DAOAbstract', ['$http', '$q', functio
             return (request.then(dao.handleSuccess, dao.handleError));
         };
 
+
+        dao.postURLNoData = function (params, success, error) {
+            var request = $http.post(dao.url + (params ? params : ''));
+            return (request.then(success ? success : dao.handleSuccess, error ? error : dao.handleError));
+        };
+
         dao.postURL = function(params, data, success, error){
             var request = $http.post(dao.url + (params ? params : ''), data);
             return (request.then(success ? success : dao.handleSuccess, error ? error : dao.handleError));

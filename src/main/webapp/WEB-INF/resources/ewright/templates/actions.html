@@ -1,61 +1,62 @@
 <div class="form-horizontal">
 
+
     <div ng-if="model.showNewAction" style="margin-top: 0px">
         <form  role="form" name="form" novalidate>
             <fieldset>
-                <h3>Create Task</h3>
+                <h3 ng-if="model.isNew">Create Task</h3>
+                <h3 ng-if="!model.isNew">Update Task</h3>
 
                 <div class="form-group">
                     <div class="col-sm-1"><label>Task Type</label></div>
-                    <div class="col-sm-11">
-                        <select class="form-control" ng-model="model.selectedType">
+                    <div class="col-sm-11" >
+                        <select class="form-control" ng-model="model.selectedType" ng-disabled="!model.isNew">
                             <option value="{{action.type}}" ng-repeat="action in model.actions">{{action.text}}</option>
                         </select>
                     </div>
                 </div>
 
                 <span ng-if="model.selectedType != 'DISCARD'">
-
                       <div class="form-group">
                           <div class="col-sm-1"><label>Start</label></div>
                           <div class="col-sm-11">
-                              <div class="dropdown">
-                                  <a class="dropdown-toggle my-toggle-select" id="dLabel" role="button"
-                                     data-toggle="dropdown" data-target="#" href="">
-                                      <div class="input-append">
-                                          <input name="startAt" type="datetime" class="form-control"
-                                                 data-ng-model="event.startsAt" required ng-disabled="event.removed">
-                                      </div>
-                                  </a>
-                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                                      <datetimepicker data-ng-model="event.startsAt"
-                                                      data-datetimepicker-config="{ dropdownSelector: '.my-toggle-select' }"></datetimepicker>
-                                  </ul>
-                              </div>
-                                             <span style="color:red" ng-show="form.startAt.$dirty && form.startAt.$invalid">
-                                            <span ng-show="form.startAt.$error.required">Start date is required.</span>
-                                                 </span>
+                              <input class="form-control"
+                                     type="datetime-local" id="exampleInput" name="input" data-ng-model="model.datetime"
+                                     min="2001-01-01T00:00:00" max="2050-12-31T00:00:00" required
+                                     ng-disabled="!model.isNew"/>
+
                           </div>
                       </div>
                       <div class="form-group">
                           <div class="col-sm-1"><label>Reason</label></div>
                           <div class="col-sm-11">
-                              <input class="form-control" placeholder="Reason">
+                              <input class="form-control" placeholder="Reason"
+                                      ng-model="model.currentAction.reason"
+                                      ng-disabled="!model.isNew">
                           </div>
                       </div>
                       <div class="form-group">
 
                           <div class="col-sm-1"><label>Notes</label></div>
                           <div class="col-sm-11">
-                              <textarea class="form-control" placeholder="Notes" rows="3"/>
+                              <textarea class="form-control" placeholder="Notes" rows="3"
+                                        ng-model="model.currentAction.note"
+                                        ng-disabled="!model.isNew"/>
                           </div>
                       </div>
-
 
                     <!-- <div ng-if="model.selectedType == 'APT_OS'">
                          <div ng-if="model.selectedType == 'APT_SC'">-->
 
-                      <div class="form-group">
+                               <div class="form-group" ng-if="model.currentAction != null && model.currentAction.id != null">
+
+                                   <div class="col-sm-1"><label>Outcome</label></div>
+                                   <div class="col-sm-11">
+                                       <textarea class="form-control" placeholder="Outcome" rows="3"
+                                                 ng-model="model.currentAction.outcome"/>
+                                   </div>
+                               </div>
+                      <div class="form-group" ng-if="model.isNew">
                           <div class="col-sm-1"><label>Assign To</label></div>
                           <div class="col-sm-11">
                               <div ng-if="model.selectedType == 'APT_OS'">
@@ -79,7 +80,11 @@
                 </div>
                 <div class="form-group">
                     <div class="col-lg-12">
-                        <button class="btn btn-default pull-right" ng-click="showNextNewPage()">Next</button>
+                        <button class="btn btn-default pull-right" ng-click="showNextNewPage()">
+                            {{model.isNew ? "Save Action" : "New Action"}}
+
+                        </button>
+                        <button ng-if="model.previousAction" class="btn btn-default pull-left" ng-click="showBackPage()">Previous Action</button>
                     </div>
 
                     </div>
