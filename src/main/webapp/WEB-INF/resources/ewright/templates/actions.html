@@ -10,13 +10,14 @@
                 <div class="form-group">
                     <div class="col-sm-1"><label>Task Type</label></div>
                     <div class="col-sm-11" >
-                        <select class="form-control" ng-model="model.selectedType" ng-disabled="!model.isNew">
-                            <option value="{{action.type}}" ng-repeat="action in model.actions">{{action.text}}</option>
+                        <select class="form-control" ng-model="model.selectedType" ng-disabled="!model.isNew"
+                                ng-options="object.text for object in model.actions track by object.type">
+
                         </select>
                     </div>
                 </div>
 
-                <span ng-if="model.selectedType != 'DISCARD'">
+                <span ng-if="model.selectedType.type != 'DISCARD'">
                       <div class="form-group">
                           <div class="col-sm-1"><label>Start</label></div>
                           <div class="col-sm-11">
@@ -54,18 +55,21 @@
                                    <div class="col-sm-11">
                                        <textarea class="form-control" placeholder="Outcome" rows="3"
                                                  ng-model="model.currentAction.outcome"/>
+
+
+
                                    </div>
                                </div>
                       <div class="form-group" ng-if="model.isNew">
                           <div class="col-sm-1"><label>Assign To</label></div>
                           <div class="col-sm-11">
-                              <div ng-if="model.selectedType == 'APT_OS'">
+                              <div ng-if="model.selectedType.type == 'APT_OS'">
                                   <input class="form-control" placeholder="Online Sales" disabled>
                               </div>
-                              <div ng-if="model.selectedType == 'APT_SC'">
+                              <div ng-if="model.selectedType.type == 'APT_SC'">
                                   <input class="form-control" placeholder="Sales Controller" disabled>
                               </div>
-                              <div ng-if="model.selectedType == 'EMAIL' || model.selectedType == 'PHONE' ">
+                              <div ng-if="model.selectedType.type == 'EMAIL' || model.selectedType.type == 'PHONE' ">
                                   <input class="form-control" placeholder="Email or call" disabled>
                               </div>
 
@@ -80,8 +84,16 @@
                 </div>
                 <div class="form-group">
                     <div class="col-lg-12">
-                        <button class="btn btn-default pull-right" ng-click="showNextNewPage()">
+                        <button class="btn btn-default pull-right" ng-click="showNextNewPage()"
+                                ng-disabled="
+
+                                (!model.isNew && (!model.currentAction.outcome || model.currentAction.outcome.length < 15)) ||
+                                (model.isNew && (!model.datetime || !model.currentAction.reason || model.currentAction.reason.length < 10 ||
+                                !model.selectedType || !model.currentAction.note || model.currentAction.note.length < 10))
+
+                                ">
                             {{model.isNew ? "Save Action" : "New Action"}}
+
 
                         </button>
                         <button ng-if="model.previousAction" class="btn btn-default pull-left" ng-click="showBackPage()">Previous Action</button>

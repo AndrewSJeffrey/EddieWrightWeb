@@ -49,6 +49,16 @@ public class ActionController {
     }
 
 
+    @RequestMapping(value = "/getLatestActionForContact", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    Action getLatestActionForContact(@RequestParam(value = "id") int customerId) {
+        Contact load = contactDao.load(customerId);
+        Action currentAction = load.getCurrentAction();
+        return currentAction;
+    }
+
+
     @ResponseBody
     @RequestMapping(value = "/new", method = {RequestMethod.POST})
     public Action newAction(@RequestBody final Action action) {

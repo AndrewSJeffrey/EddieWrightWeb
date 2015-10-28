@@ -28,6 +28,36 @@ public class UserController {
     List<User> allUsers() {
         try {
             List<User> users = userDao.list();
+            for (User user : users) {
+
+            }
+            //simulate delays
+            //  Thread.sleep(1000);
+            if (users == null) {
+                return null;
+            } else {
+                return users;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    @RequestMapping(value = "/getByRole", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    List<User> getByRole(@RequestParam(value = "role") String role) {
+        try {
+            List<User> users = userDao.findByRole(role);
+
+            for (User user : users) {
+
+
+            }
+
             //simulate delays
             //  Thread.sleep(1000);
             if (users == null) {

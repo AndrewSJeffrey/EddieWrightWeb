@@ -45,6 +45,15 @@
 <alerting/>
 </body>
 
+<script type="text/javascript">
+
+
+   /* $(window).bind('beforeunload', function(){
+        return 'Are you sure you want to close JDev WebApp?';
+    });*/
+
+</script>
+
 
 <script src="${pageContext.request.contextPath}/resources/ewright/js/ewright-main.js"></script>
 

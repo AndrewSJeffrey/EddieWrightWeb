@@ -18,7 +18,8 @@ angular.module('eWrightDirectives').directive('action', function () {
                 startsAt: new DateObject(),
                 datetime: new Date(),
                 isNew: true,
-                outcome: ""
+                outcome: "",
+                selectedType : null
 
             };
 
@@ -27,12 +28,28 @@ angular.module('eWrightDirectives').directive('action', function () {
                 return $scope.model;
             }
 
-            if ($scope.lead.assignedContact) {
+            function showAction(data) {
+                $scope.lead.assignedContact.currentAction = data.data;
                 $scope.model.currentAction = $scope.lead.assignedContact.currentAction;
                 if ($scope.model.currentAction) {
                     $scope.model.isNew = false;
                     $scope.model.datetime = new Date($scope.lead.assignedContact.currentAction.actionRequiredBy);
+                    setType();
                 }
+            }
+
+            if ($scope.lead.assignedContact) {
+                ActionService.getLatestActionForContact($scope.lead.assignedContact.id, showAction);
+            }
+
+            function setType() {
+                var type = null;
+                for (var v in model().actions) {
+                    if (model().actions[v].type == $scope.model.currentAction.type) {
+                        type = model().actions[v];
+                    }
+                }
+                model().selectedType = type;
             }
 
             $scope.onTimeSet = function (newDate, oldDate) {
@@ -46,20 +63,20 @@ angular.module('eWrightDirectives').directive('action', function () {
                 $scope.hide();
             }
 
-
             $scope.showBackPage = function () {
                 if (model().previousAction) {
                     model().currentAction = model().previousAction;
                     model().previousAction = null;
+                    model().datetime = new Date($scope.lead.assignedContact.currentAction.actionRequiredBy);
                     model().isNew = false;
+                    setType();
                 }
             };
 
             $scope.showNextNewPage = function () {
                 if (model().isNew) {
                     $scope.model.currentAction.actionRequiredBy = model().datetime;
-                    $scope.model.currentAction.type = model().selectedType;
-
+                    $scope.model.currentAction.type = model().selectedType.type;
                     $scope.model.currentAction.createdBy = AppModel.getLoggedInUser().id;
                     $scope.model.currentAction.assignedTo = AppModel.getLoggedInUser().id;
 
@@ -71,6 +88,8 @@ angular.module('eWrightDirectives').directive('action', function () {
                     model().previousAction = model().currentAction;
                     model().currentAction = null;
                     model().isNew = true;
+                    model().selectedType = null;
+                    model().datetime = new Date();
                 }
             };
 
@@ -99,7 +118,6 @@ angular.module('eWrightDirectives').directive('action', function () {
 
         }
     ];
-
 
     return {
         restrict: 'E',
