@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -52,14 +53,6 @@ public class UserController {
     List<User> getByRole(@RequestParam(value = "role") String role) {
         try {
             List<User> users = userDao.findByRole(role);
-
-            for (User user : users) {
-
-
-            }
-
-            //simulate delays
-            //  Thread.sleep(1000);
             if (users == null) {
                 return null;
             } else {
@@ -70,6 +63,26 @@ public class UserController {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @RequestMapping(value = "/getUser", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    List<User> getUser(@RequestParam(value = "id") int id) {
+        System.out.println(id);
+        try {
+            List<User> isers = new ArrayList<User>();
+            User load = userDao.load(id);
+            System.out.println(load);
+            isers.add(load);
+            return isers;
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+
+
+
     }
 
     @ResponseBody

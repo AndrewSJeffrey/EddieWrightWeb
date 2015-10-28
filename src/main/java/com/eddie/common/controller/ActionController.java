@@ -64,13 +64,11 @@ public class ActionController {
     public Action newAction(@RequestBody final Action action) {
 
 
-        //todo set assigned too and from
-
         try {
-
             final Date dateNow = new Date();
             User user = userDao.load(action.getCreatedBy());
             action.setCreatedOn(dateNow);
+            action.setAssignedTo(action.getAssignedTo());
 
             if (action.getContactId() != null) {
                 Contact load = contactDao.load(action.getContactId());

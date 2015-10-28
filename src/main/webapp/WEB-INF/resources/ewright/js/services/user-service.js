@@ -9,6 +9,14 @@ angular.module('eWrightServices').service('UserService', ['DAOAbstract', 'AppMod
         });
     }
 
+    function getByRole(role, callback) {
+        dao.query("/getByRole?role=" + role, callback);
+    }
+
+    function getUser(id, callback) {
+        dao.query("/getUser?id=" + role, callback);
+    }
+
     function createNewUser(user, callback) {
         dao.postURL("/new", repack(user), function () {
             callback();
@@ -58,10 +66,12 @@ angular.module('eWrightServices').service('UserService', ['DAOAbstract', 'AppMod
 
     return ({
         getAllUsers: getAllUsers,
+        getUser : getUser,
         createNewUser: createNewUser,
         deleteUser: deleteUser,
         restoreUser: restoreUser,
         updateUser: updateUser,
-        resetPassword: resetPassword
+        resetPassword: resetPassword,
+        getByRole : getByRole
     })
 }]);

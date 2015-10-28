@@ -1,8 +1,9 @@
 angular.module('eWrightDirectives').directive('action', function () {
 
 
-    var controller = ['$scope', 'LeadsService', 'blockUI', 'AppModel', '$modal', 'ToasterService', 'MenuService', 'ActionService', 'AppModel',
-        function ($scope, LeadsService, blockUI, AppModel, $modal, ToasterService, MenuService, ActionService, AppModel) {
+    var controller = ['$scope', 'LeadsService', 'blockUI', 'AppModel',
+        '$modal', 'ToasterService', 'MenuService', 'ActionService', 'AppModel','UserService',
+        function ($scope, LeadsService, blockUI, AppModel, $modal, ToasterService, MenuService, ActionService, AppModel, UserService) {
 
             $scope.model = {
                 showNewAction: true,
@@ -10,8 +11,7 @@ angular.module('eWrightDirectives').directive('action', function () {
                     {type: "PHONE", text: "Contact via phone"},
                     {type: "EMAIL", text: "Contact via email"},
                     {type: "APT_SC", text: "Appoint to sales controller"},
-                    {type: "APT_OS", text: "Appoint to online sales"},
-                    {type: "DISCARD", text: "Discard message"}
+                    {type: "APT_OS", text: "Appoint to online sales"}
                 ],
                 currentAction: null,
                 previousAction: null,
@@ -19,8 +19,9 @@ angular.module('eWrightDirectives').directive('action', function () {
                 datetime: new Date(),
                 isNew: true,
                 outcome: "",
-                selectedType : null
-
+                selectedType : null,
+                assignableUsers : null,
+                assignedUser : null
             };
 
 
@@ -37,6 +38,13 @@ angular.module('eWrightDirectives').directive('action', function () {
                     setType();
                 }
             }
+
+           $scope.getUserName = function() {
+
+               UserService.get
+
+
+           };
 
             if ($scope.lead.assignedContact) {
                 ActionService.getLatestActionForContact($scope.lead.assignedContact.id, showAction);
@@ -78,7 +86,7 @@ angular.module('eWrightDirectives').directive('action', function () {
                     $scope.model.currentAction.actionRequiredBy = model().datetime;
                     $scope.model.currentAction.type = model().selectedType.type;
                     $scope.model.currentAction.createdBy = AppModel.getLoggedInUser().id;
-                    $scope.model.currentAction.assignedTo = AppModel.getLoggedInUser().id;
+                    $scope.model.currentAction.assignedTo = model().assignedUser.id;
 
                     $scope.model.currentAction.messageId = $scope.lead.id;
                     $scope.model.currentAction.contactId = $scope.lead.assignedContact.id;
@@ -115,6 +123,50 @@ angular.module('eWrightDirectives').directive('action', function () {
                     }
                 }
             }
+
+            function setUsers(data) {
+                model().assignableUsers = data.data;
+            }
+
+
+            $scope.$watch("model.selectedType", function() {
+                if (model().selectedType != null) {
+                    UserService.getByRole(model().selectedType.type, setUsers)
+                }else {
+                    model().assignableUsers = null
+                }
+            });
+
+            $scope.$watch("model.password", function() {
+              $scope.passwordMet();
+            });
+
+            $scope.passwordMet = function() {
+                var availble = true;
+                if (!model().isNew) {
+                    var user = AppModel.getLoggedInUser();
+                    if (model().currentAction.assignedTo != user.id) {
+                        availble =  ($scope.model.password == user.password);
+                        console.log($scope.model.password)
+                        console.log(user.password)
+                    }
+                }
+
+                console.log("available?: " + availble)
+                return availble;
+            };
+
+            $scope.passwordReq = function() {
+                var req = false;
+                if (!model().isNew) {
+                    var user = AppModel.getLoggedInUser();
+                    req  = (model().currentAction.assignedTo != user.id);
+
+                }
+                return req;
+            }
+
+
 
         }
     ];
