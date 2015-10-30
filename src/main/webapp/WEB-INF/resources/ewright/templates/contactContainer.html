@@ -1,21 +1,19 @@
 <div class="row" style="margin-top: 10px; margin-left: 0px; margin-right:0px;">
 
 
-    <div ng-if="model.showNewUser">
-
+    <div ng-if="model.contact">
         <div style=" min-height: 40px">
             <button class="btn btn-default" style="float: left;"
-                    ng-click="model.showNewUser = null">
+                    ng-click="model.contact = null">
                 <i class="fa fa-arrow-circle-left"></i>
             </button>
         </div>
-
-        <contact></contact>
+        <contact contact="model.contact"></contact>
 
     </div>
 
 
-    <div ng-if="!model.showNewUser">
+    <div ng-if="!model.contact">
 
 
         <div ng-show="model.selectedContact != null">
@@ -37,7 +35,7 @@
         <button class="btn btn-default" type="button" ng-click="search()">Go!</button>
       </span>
              <span class="input-group-btn">
-         <button class="btn btn-success" type="button" ng-click="model.showNewUser = true"><i
+         <button class="btn btn-success" type="button" ng-click="model.contact = true"><i
                  class="fa fa-user-plus"></i></button>
       </span>
                 </div>
@@ -66,16 +64,17 @@
                             <td>
 
 
-                                <button ng-if="!enquire" class="btn btn-warning pull-right" type="button"
-                                        ng-click="open(false, contact)"><i
-                                        class="fa fa-cogs"></i></button>
-                                <button ng-if="!enquire" class="btn btn-success pull-right" type="button"
-                                        ng-click="open(false, contact)"><i
-                                        class="fa fa-pencil-square-o"></i></button>
+                                <button ng-if="!enquire" class="btn btn-default pull-right" type="button"
+                                        ng-click="model.contact = contact">
+                                    <i class="fa fa-arrow-circle-right"></i>
+                                </button>
 
                                 <button ng-if="enquire" class="btn btn-default pull-right" type="button"
                                         ng-click="setContact(contact)"><i
                                         class="fa fa-user"> Select contact</i></button>
+
+
+
 
                             </td>
 

@@ -27,7 +27,6 @@ public class LoginController {
     User getUser(@RequestParam(value = "user") String username, @RequestParam(value = "password") String password) {
         try {
             User user = userDao.findByUsernameAndPassword(username, password);
-            System.out.println(user);
             if (user == null) {
                 return null;
             } else {

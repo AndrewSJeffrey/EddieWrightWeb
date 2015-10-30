@@ -35,14 +35,14 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
 
 
         var leadssMenuItem = createMenuItem('Enquiries', MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/leads.html', function () {
-            return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
+            return AppModel.hasPermission(['ADMINISTRATOR', 'CONTROLLER']);
         });
         leadssMenuItem.icon = "fa fa-star";
         leadssMenuItem.count = 1;
 
 
         var selfGenMenuItem = createMenuItem('Self Gen', MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/leads.html', function () {
-            return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
+            return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR', 'CONTROLLER']);
         });
         selfGenMenuItem.icon = "fa fa-star";
         selfGenMenuItem.count = 1;
@@ -50,7 +50,7 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
 
 
         var tasksMenuItem = createMenuItem('Tasks', MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/tasks.html', function () {
-            return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
+            return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR', 'CONTROLLER']);
         });
         tasksMenuItem.icon = "fa fa-list";
         tasksMenuItem.count = 50;
@@ -75,7 +75,7 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
         plannerMenuItem.count = 1;
 
         var contactsMenuItem = createMenuItem("Contacts", MENU_TYPE.single, null, true, 'resources/ewright/templates/dashlet/contacts.html', function () {
-            return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR']);
+            return AppModel.hasPermission(['ADMINISTRATOR', 'OPERATOR', 'CONTROLLER']);
         });
         contactsMenuItem.icon  = "fa fa-users";
 
@@ -99,9 +99,9 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
         //settingsMenuItem.addChild(accountSettings);
 
         var mainMenu = [
+            homeMenuItem,
             leadssMenuItem,
           //  selfGenMenuItem,
-           // homeMenuItem,
             tasksMenuItem,
            // opportunitiesMenuItem,
          //   stockMenuItem,
@@ -114,8 +114,8 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
 
 
         //    THIS SETS THE DEFAULT MENU ITEM! - MUST BE HOME ON COMMIT
-        var selectedMainMenuItem = leadssMenuItem;
-        leadssMenuItem.onClick();
+        var selectedMainMenuItem = homeMenuItem;
+        homeMenuItem.onClick();
 
         function createMenuItem(title, type, onClick, selected, url, permission) {
             var menuItem = {

@@ -15,13 +15,17 @@ angular.module('eWrightDirectives').directive('contact', function () {
         }
 
         if ($scope.task) {
-            ContactService.getContactById($scope.task.id, showContact);
+            ContactService.getContactById($scope.task.contactId, showContact);
         }
 
         if (!$scope.contact && !$scope.task) {
             model().locked = false;
             model().newuser = true;
+        }
 
+        if ($scope.contact && !$scope.contact.id ){
+            model().locked = false;
+            model().newuser = true;
         }
 
         $scope.update = function () {

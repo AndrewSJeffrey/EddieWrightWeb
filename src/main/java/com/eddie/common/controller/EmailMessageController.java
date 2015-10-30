@@ -43,7 +43,6 @@ public class EmailMessageController {
     public
     @ResponseBody
     EmailDetails find(@RequestParam(value = "messageId") int messageId) {
-        System.out.println("try locate message?");
         MailMonitor mailMonitor = new MailMonitor(emailMessageDao, contactDao);
         EmailDetails message = mailMonitor.getMessage(messageId);
         return message;

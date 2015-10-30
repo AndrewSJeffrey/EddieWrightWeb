@@ -42,7 +42,7 @@ angular.module('eWrightServices').service('AppModel', function () {
 
     function hasPermission(permissions) {
         if (getLoggedInUser() == null) {
-            return;
+            return false;
         }
         for (var i = 0; i < permissions.length; i++) {
             if (permissions[i].toUpperCase() == getLoggedInUser().role.toUpperCase()) {

@@ -14,7 +14,7 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li ng-class="{active: menu.selected == true}"
-                        ng-repeat="menu in mainMenu">
+                        ng-repeat="menu in mainMenu" ng-show="menu.hasPermission()">
 
 
                         <a href="#" ng-click="menu.onClick()">
