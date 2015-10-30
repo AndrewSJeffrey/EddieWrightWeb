@@ -1,31 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f60ded23-a7f1-48b5-80e2-89713bf01051" name="Default" comment="Added loading of user with roles">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/EmailMessageDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/tasks.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/tasks.js" />
+    <list default="true" id="f60ded23-a7f1-48b5-80e2-89713bf01051" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/domain/Action.java" afterPath="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/domain/Action.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/eddie/common/controller/ActionController.java" afterPath="$PROJECT_DIR$/src/main/java/com/eddie/common/controller/ActionController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/ActionDao.java" afterPath="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/ActionDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/ActionDaoImpl.java" afterPath="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/ActionDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/domain/Contact.java" afterPath="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/domain/Contact.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/eddie/common/controller/ContactController.java" afterPath="$PROJECT_DIR$/src/main/java/com/eddie/common/controller/ContactController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/ContactDaoImpl.java" afterPath="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/ContactDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/eddie/common/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/eddie/common/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/action-service.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/action-service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/actions.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/actions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/actions.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/actions.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/contact-service.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/contact-service.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/contact.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/contact.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/contact.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/contact.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/contactContainer.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/contactContainer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/contacts.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/contacts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/leads.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/leads.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/leads.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/leads.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/controllers/menu-controller.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/controllers/menu-controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/dashlet/tasks.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/dashlet/tasks.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/user-service.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/user-service.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EddieWright.iws" />
@@ -58,48 +44,81 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="leads.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/leads.html">
+      <file leaf-file-name="contact-service.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/contact-service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5" vertical-offset="1085" max-vertical-offset="2190">
-              <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+            <state vertical-scroll-proportion="-15.961538" vertical-offset="935" max-vertical-offset="1680">
+              <caret line="90" column="10" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OpportunityController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/eddie/common/controller/OpportunityController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="42" max-vertical-offset="1080">
+              <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContactController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/eddie/common/controller/ContactController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.769231" vertical-offset="950" max-vertical-offset="1905">
+              <caret line="92" column="30" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContactDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/ContactDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1170">
+              <caret line="72" column="53" selection-start-line="72" selection-start-column="46" selection-end-line="72" selection-end-column="53" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#785#786#0" expanded="true" />
+                <element signature="e#853#854#0" expanded="true" />
+                <marker date="1446216024000" expanded="true" signature="1091:1120" placeholder="SELECT COUNT..contacts..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leads.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/leads.js">
+      <file leaf-file-name="MethodProxy.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/3.2.13.RELEASE/spring-core-3.2.13.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.0427928" vertical-offset="286" max-vertical-offset="3105">
-              <caret line="140" column="47" selection-start-line="140" selection-start-column="47" selection-end-line="140" selection-end-column="47" />
+            <state vertical-scroll-proportion="-6.76" vertical-offset="1106" max-vertical-offset="2205">
+              <caret line="101" column="18" selection-start-line="101" selection-start-column="18" selection-end-line="101" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contacts.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/contacts.js">
+      <file leaf-file-name="TransactionAspectSupport.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/3.2.13.RELEASE/spring-tx-3.2.13.RELEASE.jar!/org/springframework/transaction/interceptor/TransactionAspectSupport.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.653847" vertical-offset="615" max-vertical-offset="2745">
-              <caret line="82" column="12" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
+            <state vertical-scroll-proportion="-6.56" vertical-offset="886" max-vertical-offset="4560">
+              <caret line="104" column="21" selection-start-line="104" selection-start-column="21" selection-end-line="104" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActionController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/eddie/common/controller/ActionController.java">
+      <file leaf-file-name="Contact.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/domain/Contact.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="409" max-vertical-offset="2190">
-              <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
-              <folding />
+            <state vertical-scroll-proportion="0.3195266" vertical-offset="1908" max-vertical-offset="2415">
+              <caret line="211" column="5" selection-start-line="211" selection-start-column="5" selection-end-line="211" selection-end-column="5" />
+              <folding>
+                <element signature="e#5244#5245#0" expanded="true" />
+                <element signature="e#5280#5281#0" expanded="true" />
+                <element signature="e#5335#5336#0" expanded="true" />
+                <element signature="e#5410#5411#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,8 +126,8 @@
       <file leaf-file-name="contactContainer.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/contactContainer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6" vertical-offset="360" max-vertical-offset="1485">
-              <caret line="22" column="66" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
+            <state vertical-scroll-proportion="-7.8" vertical-offset="0" max-vertical-offset="1440">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -123,9 +142,22 @@
       <file leaf-file-name="contact.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/contact.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
-              <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
+              <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contact.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/contact.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.14" vertical-offset="1208" max-vertical-offset="2085">
+              <caret line="111" column="76" selection-start-line="111" selection-start-column="69" selection-end-line="111" selection-end-column="76" />
+              <folding>
+                <element signature="n#style#0;n#i#0;n#button#1;n#div#0;n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#1;n#button#1;n#div#0;n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,7 +165,7 @@
     </leaf>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../EddieWrightCore" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -148,7 +180,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/eddie/common/service/MailMonitor.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/dashlet/leads.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/dashlet/contacts.html" />
-        <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/domain/Contact.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/dashboard.html" />
         <option value="$PROJECT_DIR$/../roadspeed-REST/src/main/java/controller/RoadSpeedController.java" />
         <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/EmailMessageDao.java" />
@@ -174,21 +205,22 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/action-service.js" />
         <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/ActionDao.java" />
         <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/domain/Action.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/contact-service.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/eddie/common/controller/ContactController.java" />
-        <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/ContactDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/actions.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/actions.js" />
         <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/ActionDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/tasks.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/tasks.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/eddie/common/controller/ActionController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/contact.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/contact.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/contactContainer.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/leads.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/contacts.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/leads.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/contactContainer.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/contact.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/contact.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/contact-service.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/eddie/common/controller/ContactController.java" />
+        <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/ContactDaoImpl.java" />
+        <option value="$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/domain/Contact.java" />
       </list>
     </option>
   </component>
@@ -1511,7 +1543,7 @@
       <workItem from="1444129240828" duration="10134000" />
       <workItem from="1444290527682" duration="4013000" />
       <workItem from="1444317208181" duration="18839000" />
-      <workItem from="1444637184857" duration="83380000" />
+      <workItem from="1444637184857" duration="86303000" />
     </task>
     <task id="LOCAL-00001" summary="Seperated out beans">
       <created>1434917818276</created>
@@ -1691,7 +1723,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="455696000" />
+    <option name="totallyTimeSpent" value="458619000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="32" y="23" width="1871" height="1132" extended-state="0" />
@@ -1715,7 +1747,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20192307" sideWeight="0.4997183" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11923077" sideWeight="0.8860478" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48557693" sideWeight="0.8860478" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32884616" sideWeight="0.49893504" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1778,7 +1810,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Added user form with basic validation" />
     <MESSAGE value="Added save new user functionality" />
     <MESSAGE value="Added update save restore remove functionality" />
     <MESSAGE value="Added date last logged in, email and password service" />
@@ -1803,7 +1834,8 @@
     <MESSAGE value="Actions now save + update, show toastr alerts." />
     <MESSAGE value="added user roles" />
     <MESSAGE value="Added loading of user with roles" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added loading of user with roles" />
+    <MESSAGE value="updating customers" />
+    <option name="LAST_COMMIT_MESSAGE" value="updating customers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1817,7 +1849,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="44" />
+      <option name="time" value="45" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1826,26 +1858,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/eddie/common/service/EmailService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/3.2.13.RELEASE/spring-aop-3.2.13.RELEASE.jar!/org/springframework/aop/framework/ReflectiveMethodInvocation.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34602648" vertical-offset="346" max-vertical-offset="1800">
           <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/3.2.13.RELEASE/spring-aop-3.2.13.RELEASE.jar!/org/springframework/aop/framework/CglibAopProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34602648" vertical-offset="5326" max-vertical-offset="8880">
-          <caret line="416" column="25" selection-start-line="416" selection-start-column="25" selection-end-line="416" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1883,14 +1899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1365">
           <caret line="25" column="27" selection-start-line="23" selection-start-column="2" selection-end-line="25" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/3.2.13.RELEASE/spring-core-3.2.13.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.6" vertical-offset="1060" max-vertical-offset="2205">
-          <caret line="101" column="18" selection-start-line="101" selection-start-column="18" selection-end-line="101" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -2040,25 +2048,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/contact-service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1680">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/ContactDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57915056" vertical-offset="0" max-vertical-offset="1005">
-          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
-          <folding>
-            <element signature="e#777#778#0" expanded="true" />
-            <marker date="1446112404000" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..contacts..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/dashlet/contacts.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="180">
@@ -2102,22 +2091,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/eddie/common/controller/ContactController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.097972974" vertical-offset="372" max-vertical-offset="1830">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/eddie/common/controller/OpportunityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.097972974" vertical-offset="192" max-vertical-offset="1080">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/eddie/common/controller/SourceController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11824324" vertical-offset="0" max-vertical-offset="975">
@@ -2150,14 +2123,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/domain/Contact.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2265">
-          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/domain/Action.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
@@ -2179,17 +2144,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
           <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/contact.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27272728" vertical-offset="1290" max-vertical-offset="2115">
-          <caret line="101" column="14" selection-start-line="101" selection-start-column="14" selection-end-line="101" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#button#1;n#div#0;n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#1;n#button#1;n#div#0;n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2225,18 +2179,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/contact.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/contacts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        <state vertical-scroll-proportion="-23.653847" vertical-offset="615" max-vertical-offset="2745">
+          <caret line="82" column="12" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/leads.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="286" max-vertical-offset="3105">
+          <caret line="140" column="47" selection-start-line="140" selection-start-column="47" selection-end-line="140" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/leads.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.3" vertical-offset="1035" max-vertical-offset="2190">
+          <caret line="90" column="58" selection-start-line="90" selection-start-column="43" selection-end-line="90" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/contactContainer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6" vertical-offset="360" max-vertical-offset="1485">
-          <caret line="22" column="66" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
+        <state vertical-scroll-proportion="-7.8" vertical-offset="0" max-vertical-offset="1440">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -2247,33 +2223,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/contacts.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/contact.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.653847" vertical-offset="615" max-vertical-offset="2745">
-          <caret line="82" column="12" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/templates/leads.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5" vertical-offset="1085" max-vertical-offset="2190">
-          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+        <state vertical-scroll-proportion="-9.14" vertical-offset="1208" max-vertical-offset="2085">
+          <caret line="111" column="76" selection-start-line="111" selection-start-column="69" selection-end-line="111" selection-end-column="76" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#button#1;n#div#0;n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#1;n#button#1;n#div#0;n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/leads.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/directives/contact.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0427928" vertical-offset="286" max-vertical-offset="3105">
-          <caret line="140" column="47" selection-start-line="140" selection-start-column="47" selection-end-line="140" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/ewright/js/services/contact-service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.961538" vertical-offset="935" max-vertical-offset="1680">
+          <caret line="90" column="10" selection-start-line="90" selection-start-column="10" selection-end-line="90" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/eddie/common/controller/OpportunityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="42" max-vertical-offset="1080">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/3.2.13.RELEASE/spring-core-3.2.13.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.76" vertical-offset="1106" max-vertical-offset="2205">
+          <caret line="101" column="18" selection-start-line="101" selection-start-column="18" selection-end-line="101" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/3.2.13.RELEASE/spring-aop-3.2.13.RELEASE.jar!/org/springframework/aop/framework/CglibAopProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3496802" vertical-offset="5521" max-vertical-offset="8880">
+          <caret line="428" column="22" selection-start-line="428" selection-start-column="22" selection-end-line="428" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/3.2.13.RELEASE/spring-tx-3.2.13.RELEASE.jar!/org/springframework/transaction/interceptor/TransactionAspectSupport.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.56" vertical-offset="886" max-vertical-offset="4560">
+          <caret line="104" column="21" selection-start-line="104" selection-start-column="21" selection-end-line="104" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/eddie/common/controller/ContactController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.769231" vertical-offset="950" max-vertical-offset="1905">
+          <caret line="92" column="30" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/dao/impl/ContactDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1170">
+          <caret line="72" column="53" selection-start-line="72" selection-start-column="46" selection-end-line="72" selection-end-column="53" />
+          <folding>
+            <element signature="e#785#786#0" expanded="true" />
+            <element signature="e#853#854#0" expanded="true" />
+            <marker date="1446216024000" expanded="true" signature="1091:1120" placeholder="SELECT COUNT..contacts..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../EddieWrightCore/src/main/java/com/eddie/domain/Contact.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3195266" vertical-offset="1908" max-vertical-offset="2415">
+          <caret line="211" column="5" selection-start-line="211" selection-start-column="5" selection-end-line="211" selection-end-column="5" />
+          <folding>
+            <element signature="e#5244#5245#0" expanded="true" />
+            <element signature="e#5280#5281#0" expanded="true" />
+            <element signature="e#5335#5336#0" expanded="true" />
+            <element signature="e#5410#5411#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

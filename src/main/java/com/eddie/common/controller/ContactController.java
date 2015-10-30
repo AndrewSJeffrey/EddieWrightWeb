@@ -87,7 +87,12 @@ public class ContactController {
         contact.setCreatedOn(dateNow);
         contact.setModifiedOn(dateNow);
         contact.setModifiedBy(contact.getCreatedBy());
-        contactDao.save(contact);
+
+        try {
+            contactDao.save(contact);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
         return contact;
     }
 

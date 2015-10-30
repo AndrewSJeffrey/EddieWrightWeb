@@ -21,10 +21,7 @@
         <div ng-show="model.selectedContact != null">
             <h5>{{model.selectedContact.firstName}} {{model.selectedContact.surname}}</h5>
             <button class="btn btn-default" ng-click="setContact()">Not this person?</button>
-            <button class="btn btn-default" ng-init="showContact = false; " ng-click="showContact = !showContact">
-                {{!showContact ? "Show Contact" : "Hide Contact" }}
-            </button>
-            <contact ng-if="showContact" contact="model.selectedContact"></contact>
+            <contact contact="model.selectedContact"></contact>
         </div>
 
 

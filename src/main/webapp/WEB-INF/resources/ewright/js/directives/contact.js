@@ -18,6 +18,12 @@ angular.module('eWrightDirectives').directive('contact', function () {
             ContactService.getContactById($scope.task.id, showContact);
         }
 
+        if (!$scope.contact && !$scope.task) {
+            model().locked = false;
+            model().newuser = true;
+
+        }
+
         $scope.update = function () {
             blockUI.start();
             var contact = setModifiedBy($scope.contact);

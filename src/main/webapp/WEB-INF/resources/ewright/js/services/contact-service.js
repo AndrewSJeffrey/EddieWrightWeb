@@ -69,7 +69,7 @@ angular.module('eWrightServices').service('ContactService', ['DAOAbstract', 'App
             id: contact.id ? contact.id : 0,
             firstName: contact.firstName ? contact.firstName : "",
             surname: contact.surname ? contact.surname : "",
-          companyName: contact.companyName ? contact.companyName : "",
+            companyName: contact.companyName ? contact.companyName : "",
             addressLine1: contact.addressLine1 ? contact.addressLine1 : "",
             addressLine2: contact.addressLine2 ? contact.addressLine2 : "",
             addressLine3: contact.addressLine3 ? contact.addressLine3 : "",
