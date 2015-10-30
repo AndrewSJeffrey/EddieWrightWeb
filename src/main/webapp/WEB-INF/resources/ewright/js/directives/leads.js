@@ -135,6 +135,12 @@ angular.module('eWrightDirectives').directive('leads', function () {
                 LeadsService.getUnprocessedLeads(processData);
             };
 
+
+            $scope.setContact = function(data) {
+                model().selectedMessage.assignedContact = data;
+                console.log("ASSIGNED CONTACT")
+            };
+
             $scope.open = function (lead) {
                 var modalInstance = $modal.open({
                     animation: false,

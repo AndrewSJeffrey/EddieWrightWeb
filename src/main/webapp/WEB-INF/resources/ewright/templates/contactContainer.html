@@ -1,72 +1,92 @@
 <div class="row" style="margin-top: 10px; margin-left: 0px; margin-right:0px;">
 
 
+    <div ng-if="model.showNewUser">
 
+        <div style=" min-height: 40px">
+            <button class="btn btn-default" style="float: left;"
+                    ng-click="model.showNewUser = null">
+                <i class="fa fa-arrow-circle-left"></i>
+            </button>
+        </div>
 
+        <contact></contact>
 
-    <div ng-show="text != null">
-        <h5>{{text.firstName}}  {{text.surname}}</h5>
-        <button class="btn btn-default" ng-click="text = null">Not this person?</button>
-        <button class="btn btn-default" ng-init="showContact = false; "ng-click="showContact = !showContact">Show Contact</button>
-        <contact ng-if="showContact" contact="text"></contact>
     </div>
 
-    <div ng-show="text == null">
-        <div style="width: 100%;">
+
+    <div ng-if="!model.showNewUser">
 
 
-            <div class="input-group" style="margin-left: 10px; margin-right: 10px">
-                <input type="text" class="form-control" placeholder="Search customers - minimum 3 characters" ng-model="model.searchText"
-                       ng-keypress="($event.which === 13)?search():0">
+        <div ng-show="model.selectedContact != null">
+            <h5>{{model.selectedContact.firstName}} {{model.selectedContact.surname}}</h5>
+            <button class="btn btn-default" ng-click="setContact()">Not this person?</button>
+            <button class="btn btn-default" ng-init="showContact = false; " ng-click="showContact = !showContact">
+                {{!showContact ? "Show Contact" : "Hide Contact" }}
+            </button>
+            <contact ng-if="showContact" contact="model.selectedContact"></contact>
+        </div>
+
+
+        <div ng-show="model.selectedContact == null">
+            <div style="width: 100%;">
+
+
+                <div class="input-group" style="margin-left: 10px; margin-right: 10px">
+                    <input type="text" class="form-control" placeholder="Search customers - minimum 3 characters"
+                           ng-model="model.searchText"
+                           ng-keypress="($event.which === 13)?search():0">
       <span class="input-group-btn">
         <button class="btn btn-default" type="button" ng-click="search()">Go!</button>
       </span>
              <span class="input-group-btn">
-         <button class="btn btn-success" type="button" ng-click="open(true)"><i
+         <button class="btn btn-success" type="button" ng-click="model.showNewUser = true"><i
                  class="fa fa-user-plus"></i></button>
       </span>
-            </div>
-            <!-- /input-group -->
+                </div>
 
-            <div class="container" style="width: 100%; max-height: 800px; overflow-y: auto">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Mobile No.</th>
-                        <th>Phone No.</th>
-                        <th>Email</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr sly-repeat="contact in getContacts()">
-                        <td> {{contact.firstName}}</td>
-                        <td> {{contact.surname}}</td>
-                        <td> {{contact.mobile}}</td>
-                        <td> {{contact.telephone}}</td>
-                        <td>{{contact.email}}</td>
-                        <td>
+                <!-- /input-group -->
+
+                <div class="container" style="width: 100%; max-height: 800px; overflow-y: auto">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Mobile No.</th>
+                            <th>Phone No.</th>
+                            <th>Email</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr sly-repeat="contact in getContacts()">
+                            <td> {{contact.firstName}}</td>
+                            <td> {{contact.surname}}</td>
+                            <td> {{contact.mobile}}</td>
+                            <td> {{contact.telephone}}</td>
+                            <td>{{contact.email}}</td>
+                            <td>
 
 
-                            <button ng-if="!enquire" class="btn btn-warning pull-right" type="button"
-                                    ng-click="open(false, contact)"><i
-                                    class="fa fa-cogs"></i></button>
-                            <button ng-if="!enquire" class="btn btn-success pull-right" type="button"
-                                    ng-click="open(false, contact)"><i
-                                    class="fa fa-pencil-square-o"></i></button>
+                                <button ng-if="!enquire" class="btn btn-warning pull-right" type="button"
+                                        ng-click="open(false, contact)"><i
+                                        class="fa fa-cogs"></i></button>
+                                <button ng-if="!enquire" class="btn btn-success pull-right" type="button"
+                                        ng-click="open(false, contact)"><i
+                                        class="fa fa-pencil-square-o"></i></button>
 
-                            <button ng-if="enquire" class="btn btn-default pull-right" type="button"
-                                    ng-click="setContact(contact)"><i
-                                    class="fa fa-user"> Select contact</i></button>
+                                <button ng-if="enquire" class="btn btn-default pull-right" type="button"
+                                        ng-click="setContact(contact)"><i
+                                        class="fa fa-user"> Select contact</i></button>
 
-                        </td>
+                            </td>
 
-                    </tr>
+                        </tr>
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

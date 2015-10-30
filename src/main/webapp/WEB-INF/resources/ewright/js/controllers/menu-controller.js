@@ -106,10 +106,11 @@ angular.module('eWrightServices').service('MenuService', ['AppModel', function (
            // opportunitiesMenuItem,
          //   stockMenuItem,
             contactsMenuItem,
-            plannerMenuItem,
+         //   plannerMenuItem,
             accountSettings,
            // logoutMenuItem
         ];
+
 
 
         //    THIS SETS THE DEFAULT MENU ITEM! - MUST BE HOME ON COMMIT

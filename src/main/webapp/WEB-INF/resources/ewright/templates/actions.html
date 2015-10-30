@@ -19,7 +19,7 @@
 
                 <span ng-if="model.selectedType.type != 'DISCARD'">
                       <div class="form-group">
-                          <div class="col-sm-1"><label>Start</label></div>
+                          <div class="col-sm-1"><label>Due</label></div>
                           <div class="col-sm-11">
                               <input class="form-control"
                                      type="datetime-local" id="exampleInput" name="input" data-ng-model="model.datetime"
@@ -73,7 +73,7 @@
 
 
                 <div class="form-group" ng-if="passwordReq()">
-                    <div class="col-sm-12"><label style="color: #ff615d" >Action currently assigned to "{{model.currentAction.assignedTo}}" please enter password to continue</label></div>
+                    <div class="col-sm-12"><label style="color: #ff615d" >Action currently assigned to "{{model.assignedTo}}" please enter password to continue</label></div>
 
                     <div class="col-sm-1"></div>
                     <div class="col-sm-11">

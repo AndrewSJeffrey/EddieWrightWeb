@@ -33,6 +33,18 @@ public class ContactController {
         return null;
     }
 
+    @RequestMapping(value = "/getContactById", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    Contact getContactById(@RequestParam(value = "id") int id) {
+        try {
+            return contactDao.load(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public
     @ResponseBody

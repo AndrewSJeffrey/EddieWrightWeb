@@ -1,12 +1,45 @@
 angular.module('eWrightDirectives').directive('contact', function () {
     var controller = ['$scope','$modal' ,'blockUI' ,'ContactService', 'ToasterService', 'AppModel', function ($scope, $modal,blockUI, ContactService, ToasterService, AppModel) {
-        $scope.model = {
-            editMode : false
 
+        $scope.model = {
+            editMode : false,
+            locked : true
         };
 
+        function model() {
+            return $scope.model;
+        }
 
+        function showContact(data) {
+            $scope.contact = data.data;
+        }
 
+        if ($scope.task) {
+            ContactService.getContactById($scope.task.id, showContact);
+        }
+
+        $scope.update = function () {
+            blockUI.start();
+            var contact = setModifiedBy($scope.contact);
+            ContactService.updateContact(contact, function () {
+                ToasterService.createToast(ToasterService.PRIORITY.SUCCESS, "Customer " + contact.firstName + " " + contact.surname + " has been updated.");
+                blockUI.stop();
+            });
+        };
+
+        $scope.create = function () {
+            blockUI.start();
+            var contact = setModifiedBy($scope.contact);
+            ContactService.createContact(contact, function(){
+                ToasterService.createToast(ToasterService.PRIORITY.SUCCESS, "Customer " + contact.firstName + " " + contact.surname + " has been created.");
+                blockUI.stop();
+            });
+        };
+
+        function setModifiedBy(contact) {
+            contact.modifiedBy = AppModel.getLoggedInUser().username;
+            return contact;
+        }
 
     }];
 
@@ -14,7 +47,8 @@ angular.module('eWrightDirectives').directive('contact', function () {
         restrict: 'E',
         scope: {
             contact : "=contact",
-            enquire : "@enquire"
+            enquire : "@enquire",
+            task : "=task"
         },
         controller: controller,
         templateUrl: '/resources/ewright/templates/contact.html',

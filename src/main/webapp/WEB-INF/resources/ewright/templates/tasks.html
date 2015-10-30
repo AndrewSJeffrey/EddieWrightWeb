@@ -1,0 +1,65 @@
+<div style="padding: 0px 5px 5px;">
+
+
+    <div class="ewframe" ng-if="!model.selectedTask">
+        <input class="form-control" placeholder="Search..." ng-model="model.searchText" ng-keyup="filter()">
+        <table class="table table-condensed table-hover">
+            <thead>
+            <tr>
+                <th ng-click="filterBy('date')" style="cursor: hand">Date</th>
+                <th ng-click="filterBy('type')" style="cursor: hand">Type</th>
+                <th ng-click="filterBy('reason')" style="cursor: hand">Reason</th>
+                <!-- <th ng-click="filterBy('email')" style="cursor: hand">Email</th>
+                 <th ng-click="filterBy('phoneNumber')" style="cursor: hand">Phone No.</th>-->
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr sly-repeat="task in getTasks()" ng-style="overDue(task)">
+                <td>{{task.actionRequiredBy | date:"d/M/yy h:mm a" }}</td>
+                <td>{{task.type}}</td>
+                <td>{{task.reason}}</td>
+                <!--<td>{{lead.receivedDate | date:"d/M/yy h:mm a"}}</td>
+                <td>{{lead.name | limitTo:25}}</td>
+                <td>{{lead.email | limitTo:25}}</td>
+                <td>{{lead.phoneNumber | limitTo:25}}</td>-->
+                <td>
+
+                    <button class="btn btn-default pull-right"
+                            type="submit" ng-click="selectTask(task)">
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+        <div ng-if="getTasks().length == 0">
+            <h3>No Tasks found matching search criteria:
+                <font color="red">{{model.searchText}}</font>
+            </h3>
+        </div>
+    </div>
+
+
+    <div ng-if="model.selectedTask">
+
+        <div style=" min-height: 40px">
+            <button class="btn btn-default" style="float: left;"
+                    ng-click="model.selectedTask = null">
+                <i class="fa fa-arrow-circle-left"></i>
+            </button>
+
+        </div>
+
+        <div class="ewframe">
+            <action task="model.selectedTask" hide="hide()"></action>
+        </div>
+
+        <div class="ewframe">
+            <contact task="model.selectedTask"></contact>
+
+        </div>
+
+    </div>
+</div>

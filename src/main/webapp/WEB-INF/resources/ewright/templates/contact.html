@@ -3,10 +3,10 @@
     <form class="form-horizontal" role="form" name="form" novalidate>
         <div class="modal-body">
 
-
             <fieldset>
                 <form class="form-horizontal" role="form" disabled>
                     <fieldset>
+
 
                         <legend>Customer Details</legend>
 
@@ -14,13 +14,13 @@
                             <label class="col-sm-2 control-label" for="textinput">Name</label>
 
                             <div class="col-sm-4">
-                                <input type="text" placeholder="First Name" class="form-control" ng-model="contact.firstName">
+                                <input type="text" placeholder="First Name" class="form-control" ng-model="contact.firstName"  ng-disabled="model.locked">
                             </div>
 
                             <label class="col-sm-2 control-label" for="textinput">Surname</label>
 
                             <div class="col-sm-4">
-                                <input type="text" placeholder="Surname" class="form-control" ng-model="contact.surname" >
+                                <input type="text" placeholder="Surname" class="form-control" ng-model="contact.surname"  ng-disabled="model.locked">
                             </div>
                         </div>
 
@@ -29,7 +29,7 @@
                             <label class="col-sm-2 control-label" for="textinput">Mobile</label>
 
                             <div class="col-sm-10">
-                                <input type="text" placeholder="Mobile" class="form-control" ng-model="contact.mobile">
+                                <input type="text" placeholder="Mobile" class="form-control" ng-model="contact.mobile"  ng-disabled="model.locked">
                             </div>
                         </div>
                         <!-- Text input-->
@@ -37,7 +37,7 @@
                             <label class="col-sm-2 control-label" for="textinput">Telephone</label>
 
                             <div class="col-sm-10">
-                                <input type="text" placeholder="Telephone" class="form-control" ng-model="contact.telephone">
+                                <input type="text" placeholder="Telephone" class="form-control" ng-model="contact.telephone"  ng-disabled="model.locked">
                             </div>
                         </div>
                         <!-- Text input-->
@@ -45,7 +45,7 @@
                             <label class="col-sm-2 control-label" for="textinput">Email</label>
 
                             <div class="col-sm-10">
-                                <input type="text" placeholder="Email" class="form-control" ng-model="contact.email">
+                                <input type="text" placeholder="Email" class="form-control" ng-model="contact.email"  ng-disabled="model.locked">
                             </div>
                         </div>
 
@@ -57,7 +57,7 @@
                             <label class="col-sm-2 control-label" for="textinput">Line 1</label>
 
                             <div class="col-sm-10">
-                                <input type="text" placeholder="Address Line 1" class="form-control" ng-model="contact.addressLine1">
+                                <input type="text" placeholder="Address Line 1" class="form-control" ng-model="contact.addressLine1"  ng-disabled="model.locked">
                             </div>
                         </div>
 
@@ -66,7 +66,7 @@
                             <label class="col-sm-2 control-label" for="textinput">Line 2</label>
 
                             <div class="col-sm-10">
-                                <input type="text" placeholder="Address Line 2" class="form-control" ng-model="contact.addressLine2">
+                                <input type="text" placeholder="Address Line 2" class="form-control" ng-model="contact.addressLine2"  ng-disabled="model.locked">
                             </div>
                         </div>
 
@@ -75,7 +75,7 @@
                             <label class="col-sm-2 control-label" for="textinput">City</label>
 
                             <div class="col-sm-10">
-                                <input type="text" placeholder="City" class="form-control" ng-model="contact.addressLine3">
+                                <input type="text" placeholder="City" class="form-control" ng-model="contact.addressLine3"  ng-disabled="model.locked">
                             </div>
                         </div>
 
@@ -84,13 +84,13 @@
                             <label class="col-sm-2 control-label" for="textinput">County</label>
 
                             <div class="col-sm-4">
-                                <input type="text" placeholder="State" class="form-control" ng-model="contact.country">
+                                <input type="text" placeholder="State" class="form-control" ng-model="contact.country"  ng-disabled="model.locked">
                             </div>
 
                             <label class="col-sm-2 control-label" for="textinput">Postcode</label>
 
                             <div class="col-sm-4">
-                                <input type="text" placeholder="Post Code" class="form-control" ng-model="contact.postcode">
+                                <input type="text" placeholder="Post Code" class="form-control" ng-model="contact.postcode"   ng-disabled="model.locked">
                             </div>
                         </div>
 
@@ -103,34 +103,29 @@
         <div class="modal-footer">
             <div class="form-group">
                 <div class="col-sm-2">
-                    <div class="pull-left">
 
-
-                        <button ng-hide="model.newuser" ng-show="!user.removed" type="submit" class="btn btn-danger"
-                                ng-click="delete()">Delete
-                            Record
-                        </button>
-
-                        <button ng-hide="model.newuser" ng-show="user.removed" type="submit" class="btn btn-success"
-                                ng-click="restore()">Restore
-                            Record
-                        </button>
-
-
-                    </div>
 
                 </div>
                 <div class="col-sm-10">
                     <div class="pull-right">
-                        <button ng-hide="model.newuser" type="submit" class="btn btn-primary" ng-click="update()"
-                                ng-disabled="form.$invalid"> Update
+
+
+
+                        <button ng-hide="model.newuser" type="submit" class="btn btn-default" ng-click="update()"
+                                ng-disabled="form.$invalid || model.locked"> Update
                             Record
                         </button>
-                        <button ng-show="model.newuser" type="submit" class="btn btn-primary" ng-click="create()"
+
+                        <button ng-hide="model.newuser" class="btn btn-default"
+                                ng-click="model.locked =!model.locked">
+                            <i ng-if="!model.locked" class="fa fa-unlock" style="color:green;"> Lock</i>
+                            <i ng-if="model.locked" class="fa fa-lock" style="color:red;"> Unlock</i>
+                        </button>
+
+                        <button ng-show="model.newuser" type="submit" class="btn btn-default" ng-click="create()"
                                 ng-disabled="form.$invalid">Create
                             Record
                         </button>
-                        <button type="submit" class="btn btn-default" ng-click="cancel()">Close</button>
                     </div>
                 </div>
             </div>

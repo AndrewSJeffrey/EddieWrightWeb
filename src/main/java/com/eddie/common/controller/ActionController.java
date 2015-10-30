@@ -35,7 +35,7 @@ public class ActionController {
     @Autowired
     private EmailMessageDao emailMessageDao;
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
     public
     @ResponseBody
     List<Action> getActions() {
@@ -49,6 +49,19 @@ public class ActionController {
     }
 
 
+    @RequestMapping(value = "/myActions", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    List<Action> getMyActions(@RequestParam(value = "id") int userId) {
+        try {
+            List<Action> actions = actionDao.findByUserId(userId);
+            return actions;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     @RequestMapping(value = "/getLatestActionForContact", method = RequestMethod.GET)
     public
     @ResponseBody
@@ -57,7 +70,6 @@ public class ActionController {
         Action currentAction = load.getCurrentAction();
         return currentAction;
     }
-
 
     @ResponseBody
     @RequestMapping(value = "/new", method = {RequestMethod.POST})

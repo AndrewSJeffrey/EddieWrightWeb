@@ -48,7 +48,7 @@
 
                         <button class="btn  btn-danger" style="float: right; margin-left: 3px"
                                 ng-click="discard(model.selectedMessage); $event.stopPropagation()"
-                                ng-disabled="!model.selectedMessage.reason || model.selectedMessage.reason.length < 15">
+                                ng-disabled="model.selectedMessage.reason.length < 15">
                             Yes
                         </button>
                     </div>
@@ -88,12 +88,13 @@
 
         <div class="ewframe">
             <h3 class="ewheader">Contact</h3>
-            <contact-container text="model.selectedMessage.assignedContact" enquire="1"></contact-container>
+            <contact-container text="model.selectedMessage.assignedContact" enquire="1"  contact="setContact(data)"></contact-container>
         </div>
+
 
         <div class="ewframe" ng-if="model.selectedMessage && model.selectedMessage.assignedContact">
             <h3 class="ewheader">Action</h3>
-            <action lead="model.selectedMessage" hide="hide()"></action>
+            <action lead="model.selectedMessage" hide="hide()" ></action>
         </div>
 
     </div>

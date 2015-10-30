@@ -68,21 +68,8 @@ public class UserController {
     @RequestMapping(value = "/getUser", method = RequestMethod.GET)
     public
     @ResponseBody
-    List<User> getUser(@RequestParam(value = "id") int id) {
-        System.out.println(id);
-        try {
-            List<User> isers = new ArrayList<User>();
-            User load = userDao.load(id);
-            System.out.println(load);
-            isers.add(load);
-            return isers;
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-
-
-
+    User getUser(@RequestParam(value = "id") int id) {
+        return userDao.load(id);
     }
 
     @ResponseBody
@@ -95,9 +82,9 @@ public class UserController {
         resetPassword(user);
         user.setRemoved(false);
         userDao.save(user);
-
         return user;
     }
+    
 
     @ResponseBody
     @RequestMapping(value = "/delete", method = {RequestMethod.POST})

@@ -9,6 +9,12 @@ angular.module('eWrightServices').service('ContactService', ['DAOAbstract', 'App
         });
     }
 
+    function getContactById(id, callback){
+        dao.query("/getContactById?id=" + id, function (result) {
+            callback(result)
+        });
+    }
+
     function searchContacts(search, callback) {
         dao.query("/search?search=" + search, function (result) {
             callback(result.data)
@@ -95,6 +101,7 @@ angular.module('eWrightServices').service('ContactService', ['DAOAbstract', 'App
         deleteContact: deleteContact,
         restoreContact: restoreContact,
         searchContacts : searchContacts,
-        searchContactsFirstName : searchContactsFirstName
+        searchContactsFirstName : searchContactsFirstName,
+        getContactById : getContactById
     })
 }]);

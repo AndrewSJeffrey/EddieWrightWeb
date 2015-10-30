@@ -2,8 +2,8 @@ angular.module('eWrightDirectives').directive('action', function () {
 
 
     var controller = ['$scope', 'LeadsService', 'blockUI', 'AppModel',
-        '$modal', 'ToasterService', 'MenuService', 'ActionService', 'AppModel','UserService',
-        function ($scope, LeadsService, blockUI, AppModel, $modal, ToasterService, MenuService, ActionService, AppModel, UserService) {
+        '$modal', 'ToasterService', 'MenuService', 'ActionService', 'AppModel', 'UserService', 'ContactService',
+        function ($scope, LeadsService, blockUI, AppModel, $modal, ToasterService, MenuService, ActionService, AppModel, UserService, ContactService) {
 
             $scope.model = {
                 showNewAction: true,
@@ -15,15 +15,38 @@ angular.module('eWrightDirectives').directive('action', function () {
                 ],
                 currentAction: null,
                 previousAction: null,
-                startsAt: new DateObject(),
                 datetime: new Date(),
                 isNew: true,
-                outcome: "",
-                selectedType : null,
-                assignableUsers : null,
-                assignedUser : null
+                selectedType: null,
+                assignableUsers: null,
+                assignedUser: null,
+                assignedTo: null
             };
 
+            if ($scope.lead && $scope.lead.assignedContact) {
+                ActionService.getLatestActionForContact($scope.lead.assignedContact.id, showAction);
+            }
+
+            if ($scope.task) {
+                $scope.lead = {
+                    id: null,
+                    assignedContact: null
+                };
+                console.log("load task");
+                loadMessage();
+            }
+
+            function setContact(data) {
+                $scope.lead.assignedContact = data.data;
+                if ($scope.lead.assignedContact) {
+                    ActionService.getLatestActionForContact($scope.lead.assignedContact.id, showAction);
+                }
+            }
+
+            function loadMessage() {
+                console.log($scope.task);
+                ContactService.getContactById($scope.task.contactId, setContact)
+            }
 
             function model() {
                 return $scope.model;
@@ -36,18 +59,17 @@ angular.module('eWrightDirectives').directive('action', function () {
                     $scope.model.isNew = false;
                     $scope.model.datetime = new Date($scope.lead.assignedContact.currentAction.actionRequiredBy);
                     setType();
+                    getUserName();
                 }
             }
 
-           $scope.getUserName = function() {
+            function userNameLoaded(data) {
+                console.log(data.data)
+                model().assignedTo = data.data.username;
+            }
 
-               UserService.get
-
-
-           };
-
-            if ($scope.lead.assignedContact) {
-                ActionService.getLatestActionForContact($scope.lead.assignedContact.id, showAction);
+            function getUserName() {
+                UserService.getUser(model().currentAction.assignedTo, userNameLoaded)
             }
 
             function setType() {
@@ -59,12 +81,6 @@ angular.module('eWrightDirectives').directive('action', function () {
                 }
                 model().selectedType = type;
             }
-
-            $scope.onTimeSet = function (newDate, oldDate) {
-                console.log(newDate);
-                console.log(newDate.localDateValue);
-                console.log(oldDate);
-            };
 
             function createdAction() {
                 ToasterService.createToast(ToasterService.PRIORITY.SUCCESS, "New Action Created '" + $scope.model.currentAction.reason + "'");
@@ -88,6 +104,10 @@ angular.module('eWrightDirectives').directive('action', function () {
                     $scope.model.currentAction.createdBy = AppModel.getLoggedInUser().id;
                     $scope.model.currentAction.assignedTo = model().assignedUser.id;
 
+                    if (model().previousAction) {
+                        $scope.model.currentAction.outcome = model().previousAction.outcome
+                    }
+
                     $scope.model.currentAction.messageId = $scope.lead.id;
                     $scope.model.currentAction.contactId = $scope.lead.assignedContact.id;
                     ActionService.createAction($scope.model.currentAction, createdAction);
@@ -101,72 +121,42 @@ angular.module('eWrightDirectives').directive('action', function () {
                 }
             };
 
-            function DateObject() {
-
-                var tempDate = new Date();
-                var localOffset = tempDate.getTimezoneOffset() * 60000;
-                this.utcDateValue = tempDate.getTime();
-                this.selectable = true;
-
-                this.localDateValue = function () {
-                    return this.utcDateValue + localOffset;
-                };
-
-                var validProperties = ['utcDateValue', 'localDateValue', 'display', 'active', 'selectable', 'past', 'future'];
-
-                for (var prop in arguments[0]) {
-                    /* istanbul ignore else */
-                    //noinspection JSUnfilteredForInLoop
-                    if (validProperties.indexOf(prop) >= 0) {
-                        //noinspection JSUnfilteredForInLoop
-                        this[prop] = arguments[0][prop];
-                    }
-                }
-            }
-
             function setUsers(data) {
                 model().assignableUsers = data.data;
             }
 
-
-            $scope.$watch("model.selectedType", function() {
+            $scope.$watch("model.selectedType", function () {
                 if (model().selectedType != null) {
                     UserService.getByRole(model().selectedType.type, setUsers)
-                }else {
+                } else {
                     model().assignableUsers = null
                 }
             });
 
-            $scope.$watch("model.password", function() {
-              $scope.passwordMet();
+            $scope.$watch("model.password", function () {
+                $scope.passwordMet();
             });
 
-            $scope.passwordMet = function() {
+            $scope.passwordMet = function () {
                 var availble = true;
                 if (!model().isNew) {
                     var user = AppModel.getLoggedInUser();
                     if (model().currentAction.assignedTo != user.id) {
-                        availble =  ($scope.model.password == user.password);
-                        console.log($scope.model.password)
-                        console.log(user.password)
+                        availble = ($scope.model.password == user.password);
                     }
                 }
-
-                console.log("available?: " + availble)
                 return availble;
             };
 
-            $scope.passwordReq = function() {
+            $scope.passwordReq = function () {
                 var req = false;
                 if (!model().isNew) {
                     var user = AppModel.getLoggedInUser();
-                    req  = (model().currentAction.assignedTo != user.id);
+                    req = (model().currentAction.assignedTo != user.id);
 
                 }
                 return req;
             }
-
-
 
         }
     ];
@@ -176,7 +166,8 @@ angular.module('eWrightDirectives').directive('action', function () {
         replace: 'true',
         scope: {
             lead: "=lead",
-            hide : "&hide"
+            hide: "&hide",
+            task: "=task"
         },
         controller: controller,
         templateUrl: '/resources/ewright/templates/actions.html',

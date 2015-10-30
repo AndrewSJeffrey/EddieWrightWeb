@@ -14,7 +14,7 @@ angular.module('eWrightServices').service('UserService', ['DAOAbstract', 'AppMod
     }
 
     function getUser(id, callback) {
-        dao.query("/getUser?id=" + role, callback);
+        dao.query("/getUser?id=" + id, callback);
     }
 
     function createNewUser(user, callback) {

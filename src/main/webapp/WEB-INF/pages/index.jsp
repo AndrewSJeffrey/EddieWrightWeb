@@ -82,6 +82,7 @@
 <script src="${pageContext.request.contextPath}/resources/ewright/js/directives/contact.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/directives/contacts.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/directives/leads.js"></script>
+<script src="${pageContext.request.contextPath}/resources/ewright/js/directives/tasks.js"></script>
 <script src="${pageContext.request.contextPath}/resources/ewright/js/directives/actions.js"></script>
 
 

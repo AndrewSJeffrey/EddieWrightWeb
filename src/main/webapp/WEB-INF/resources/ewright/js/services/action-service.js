@@ -3,6 +3,14 @@ angular.module('eWrightServices').service('ActionService', ['DAOAbstract', 'AppM
     var dao = DAOAbstract.createDAO('/actions');
 
 
+    function allActions(callback) {
+        dao.query("/all", callback);
+    }
+
+    function myActions(userId, callback) {
+        dao.query("/myActions?id=" + userId, callback);
+    }
+
 
     function createAction(event, callback) {
         dao.postURL("/new", event, function () {
@@ -61,6 +69,8 @@ angular.module('eWrightServices').service('ActionService', ['DAOAbstract', 'AppM
     }
 
     return ({
+        allActions: allActions,
+        myActions : myActions,
         createAction: createAction,
         getLatestActionForContact: getLatestActionForContact,
         updateLead: updateLead,

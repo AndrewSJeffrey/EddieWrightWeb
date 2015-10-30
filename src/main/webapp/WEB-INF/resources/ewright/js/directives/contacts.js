@@ -4,10 +4,11 @@ angular.module('eWrightDirectives').directive('contactContainer', function () {
             contacts: [],
             contactCount: 0,
             searchText: '',
-            letters : ['-', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
-            selectedLetter : 'A'
+            showNewUser : false,
+            selectedContact : null
         };
 
+        model().selectedContact = $scope.text;
 
         function model() {
             return $scope.model;
@@ -78,9 +79,10 @@ angular.module('eWrightDirectives').directive('contactContainer', function () {
         };
 
         $scope.setContact = function (contact) {
+            model().selectedContact = contact;
+          //  $scope.setExternalContact(contact);
             $scope.text = contact;
         }
-
 
     }];
 
@@ -88,6 +90,7 @@ angular.module('eWrightDirectives').directive('contactContainer', function () {
         restrict: 'E',
         scope: {
             text : "=text",
+            setExternalContact: "&contact",
             enquire : "@enquire"
 
         },
